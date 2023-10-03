@@ -20,19 +20,32 @@ function Navbar() {
 
   useEffect(() => {
     showButton();
-  }, []);
 
-  window.addEventListener('resize', showButton);
+    // Add the event listener
+    window.addEventListener('resize', showButton);
+    
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('resize', showButton);
+    };
+  }, []);
 
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            <img src="images/Wattenbarger Events.png" id='logo' alt="logo" />
             Watt Events
-            <i class='fab fa-typo3' />
+            <i className='fab fa-typo3' />
           </Link>
-          <div className='menu-icon' onClick={handleClick}>
+          <div 
+            className='menu-icon' 
+            onClick={handleClick}
+            role="button" 
+            aria-label="Toggle Navigation Menu"
+            aria-expanded={click}
+          >
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>

@@ -69,4 +69,9 @@ video {
     .btn {
       width: 100%;
     }
+
+    button, .btn {
+      text-decoration: none;
+  }
+  
   }

@@ -9,11 +9,26 @@
     top: 0;
     z-index: 999;
   }
-  
+  .btn, .btn-mobile {
+    display: inline;
+}
+#logo {
+  height: 60px; /* Or whatever height you prefer, but should be less than navbar's height */
+  width: auto;
+  transition: 0.5s; /* For a smooth transition on resizing */
+  padding-right: 10px; /* To provide some spacing between the logo and any subsequent elements */
+}
+
+/* For responsiveness, you can resize the logo for smaller screens */
+@media screen and (max-width: 960px) {
+  #logo {
+      height: 40px; /* Resize the logo height for smaller screens */
+  }
+}
   .navbar-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     height: 80px;
     max-width: 1500px;
   }

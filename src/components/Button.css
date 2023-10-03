@@ -2,12 +2,20 @@
     --primary: #fff;
   }
   
+  .btn, .btn-mobile, .btn--outline {
+    display: inline-block;
+    text-decoration: none; 
+}
+
+
   .btn {
+    display: inline-block;
     padding: 8px 20px;
     border-radius: 2px;
     outline: none;
     border: none;
     cursor: pointer;
+    text-decoration: none;
   }
   
   .btn--primary {
@@ -17,6 +25,7 @@
   }
   
   .btn--outline {
+    display: inline-block;
     background-color: transparent;
     color: #fff;
     padding: 8px 20px;
