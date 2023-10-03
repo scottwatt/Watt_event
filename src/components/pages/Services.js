@@ -13,12 +13,12 @@ class Services extends React.Component {
         <div className="services-container">
           <h1>Our Services</h1>
           <div className="service">
-            <img src='images/party.jpg' alt="Birthday Parties" />
+            <img src='images/rouletteChips.jpg' alt="Birthday Parties" />
             <h2>Birthday Parties</h2>
             <p>Throw a memorable birthday party for your child with our help! We offer customized party packages that include decorations, games, activities, and catering.</p>
           </div>
           <div className="service">
-            <img src='images/party.jpg' alt="Fundraisers" />
+            <img src='images/blackjack2.jpg' alt="Fundraisers" />
             <h2>Fundraisers</h2>
             <p>Planning a fundraiser can be challenging, but we're here to make it easier. We offer event planning services to help you organize a successful fundraiser that raises funds for your cause.</p>
           </div>
