@@ -43,16 +43,17 @@ const ContactCard = () => {
             body: formData,
         })
         .then((response) => {
-            if (response.ok) {
-                setFormStatus('Sent!');
-                e.target.reset();  // Reset the form fields
-            } else {
-                setFormStatus('Error. Try again.');
-            }
-        })
-        .catch(() => {
-            setFormStatus('Network Error. Try again.');
-        });
+          return response.json().then(data => {
+              if (response.ok) {
+                  setFormStatus('Sent!');
+                  e.target.reset();  // Reset the form fields
+              } else {
+                  console.log(data);  // Log the error data
+                  setFormStatus('Error. Try again.');
+              }
+          });
+      })
+      
     }
 
     return (
