@@ -73,7 +73,9 @@
   .footer-link-items > h2 {
     color: #fff;
   }
-  
+  .footerlogo{
+    height: 80px;
+  }
   .footer-link-items a {
     color: #fff;
     text-decoration: none;

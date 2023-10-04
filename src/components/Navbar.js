@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -37,7 +39,6 @@ function Navbar() {
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             <img src="images/Wattenbarger Events.png" id='logo' alt="logo" />
             Watt Events
-            <i className='fab fa-typo3' />
           </Link>
           <div 
             className='menu-icon' 
@@ -46,7 +47,9 @@ function Navbar() {
             aria-label="Toggle Navigation Menu"
             aria-expanded={click}
           >
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+            <FontAwesomeIcon icon={click ? faTimes : faBars}
+                className={click ? "faTimes" : "faBars"}
+                />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
@@ -72,7 +75,6 @@ function Navbar() {
                 Products
               </Link>
             </li>
-
             <li>
               <Link
                 to='/sign-up'

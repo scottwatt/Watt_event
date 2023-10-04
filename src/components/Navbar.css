@@ -6,8 +6,8 @@
     align-items: center;
     font-size: 1.2rem;
     position: sticky;
+    z-index: 100 !important;
     top: 0;
-    z-index: 999;
   }
   .btn, .btn-mobile {
     display: inline;
@@ -19,12 +19,6 @@
   padding-right: 10px; /* To provide some spacing between the logo and any subsequent elements */
 }
 
-/* For responsiveness, you can resize the logo for smaller screens */
-@media screen and (max-width: 960px) {
-  #logo {
-      height: 40px; /* Resize the logo height for smaller screens */
-  }
-}
   .navbar-container {
     display: flex;
     justify-content: center;
@@ -44,10 +38,6 @@
     align-items: center;
   }
   
-  .fa-typo3 {
-    margin-left: 0.5rem;
-    font-size: 1.8rem;
-  }
   
   .nav-menu {
     display: grid;
@@ -78,6 +68,11 @@
     transition: all 0.2s ease-out;
   }
   
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+
   .fa-bars {
     color: #fff;
   }
@@ -91,6 +86,19 @@
   }
   
   @media screen and (max-width: 960px) {
+
+    #logo {
+      height: 40px; /* Resize the logo height for smaller screens */
+  }
+
+  .svg-inline--fa {
+      color: white;
+  }
+    .fa-times {
+      color: #fff !important;
+      font-size: 2rem;
+  }
+  
     .NavbarItems {
       position: relative;
     }
@@ -99,10 +107,11 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: 90vh;
+      height: 100vh;
       position: absolute;
-      top: 80px;
+      top: 0;
       left: -100%;
+      justify-content: space-evenly;
       opacity: 1;
       transition: all 0.5s ease;
     }
@@ -112,14 +121,14 @@
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
-      z-index: 1;
     }
   
     .nav-links {
-      text-align: center;
-      padding: 2rem;
-      width: 100%;
-      display: table;
+      height: auto; /* We don't restrict the height so it can grow and take the necessary space */
+        flex-grow: 1; /* This allows the links to grow and take up available space equally */
+        display: flex;
+        align-items: center; /* This centers the text vertically */
+        justify-content: center;
     }
   
     .nav-links:hover {
@@ -136,19 +145,18 @@
     }
   
     .menu-icon {
-      display: block;
+      /* display: block; */
       position: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 60%);
+      z-index: 1000;
+      top: 37%;  /* This positions the top of the icon at 60% down from the top of its container */
+      right: 40px;
       font-size: 1.8rem;
       cursor: pointer;
+      visibility: visible !important;
+      opacity: 1 !important;
+      display: block !important;
     }
   
-    .fa-times {
-      color: #fff;
-      font-size: 2rem;
-    }
   
     .nav-links-mobile {
       display: block;

@@ -80,7 +80,7 @@ const ContactCard = () => {
                     <label className="form-label" htmlFor="message">Message</label>
                     <div className="input-group">
                         <span className="input-group-addon"><FiMessageSquare /></span>
-                        <textarea className="form-control" name="message" required></textarea>
+                        <textarea className="form-control" name="message" ></textarea>
                     </div>
                 </div>
 
@@ -102,6 +102,15 @@ const ContactCard = () => {
                                     <input type="checkbox" className="form-check-input" id="blackjack" value="Blackjack" onChange={handleGameSelection} checked={selectedGames.includes("Blackjack")} />
                                     <label className="form-check-label" htmlFor="blackjack">Blackjack</label>
                                 </div>
+                                <div className="form-check">
+                                    <input type="checkbox" className="form-check-input" id="roullette" value="Roullette" onChange={handleGameSelection} checked={selectedGames.includes("Roullette")} />
+                                    <label className="form-check-label" htmlFor="roullette">Roullette</label>
+                                </div>
+                                <div className="form-check">
+                                    <input type="checkbox" className="form-check-input" id="craps" value="Craps" onChange={handleGameSelection} checked={selectedGames.includes("Craps")} />
+                                    <label className="form-check-label" htmlFor="craps">Craps</label>
+                                </div>
+                                
                             </div>
                         )}
                     </div>
@@ -113,8 +122,11 @@ const ContactCard = () => {
                     <label className="form-label" htmlFor="event">Event Type</label>
                     <select className="form-control" id="event" onChange={(e) => setEventType(e.target.value)} value={eventType}>
                         <option value="">-- Select an event --</option>
-                        <option value="birthday">Birthday</option>
-                        <option value="fundraiser">Fundraiser</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Work">Work</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Fundraiser">Fundraiser</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <br></br>
