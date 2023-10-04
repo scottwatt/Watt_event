@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { FiUser, FiMail, FiMessageSquare } from 'react-icons/fi';
 import './ContactCard.css';
 
@@ -8,10 +8,27 @@ const ContactCard = () => {
     const [selectedGames, setSelectedGames] = useState([]);
     const [eventType, setEventType] = useState("");
     const [numAttendees, setNumAttendees] = useState("");
+    const [errorMsg, setErrorMsg] = useState('');
+
+    const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown);
     }
+
+    const handleOutsideClick = useCallback((e) => {
+      if (showDropdown && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+          setShowDropdown(false);
+      }
+  }, [showDropdown, dropdownRef]);
+  
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+    };
+}, [handleOutsideClick]);
 
     const handleGameSelection = (e) => {
         const { value, checked } = e.target;
@@ -25,7 +42,6 @@ const ContactCard = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        // Convert form data to the appropriate format for submission
         const formData = new FormData();
         formData.append("name", e.target.name.value);
         formData.append("email", e.target.email.value);
@@ -34,7 +50,11 @@ const ContactCard = () => {
         formData.append("numAttendees", numAttendees);
         selectedGames.forEach(game => formData.append("selectedGames", game));
 
-        // Submit the form data to Formspree
+        if (selectedGames.length === 0) {
+            setErrorMsg('Please select at least one game.');
+            return;
+        }
+
         fetch("https://formspree.io/f/xoqopnpz", {
             method: "POST",
             headers: {
@@ -43,17 +63,16 @@ const ContactCard = () => {
             body: formData,
         })
         .then((response) => {
-          return response.json().then(data => {
-              if (response.ok) {
-                  setFormStatus('Sent!');
-                  e.target.reset();  // Reset the form fields
-              } else {
-                  console.log(data);  // Log the error data
-                  setFormStatus('Error. Try again.');
-              }
-          });
-      })
-      
+            return response.json().then(data => {
+                if (response.ok) {
+                    setFormStatus('Sent!');
+                    e.target.reset();
+                } else {
+                    console.log(data);
+                    setFormStatus('Error. Try again.');
+                }
+            });
+        })
     }
 
     return (
@@ -67,7 +86,7 @@ const ContactCard = () => {
                         <input className="form-control" type="text" name="name" required />
                     </div>
                 </div>
-                
+
                 <div className="mb-3">
                     <label className="form-label" htmlFor="email">Email</label>
                     <div className="input-group">
@@ -80,16 +99,14 @@ const ContactCard = () => {
                     <label className="form-label" htmlFor="message">Message</label>
                     <div className="input-group">
                         <span className="input-group-addon"><FiMessageSquare /></span>
-                        <textarea className="form-control" name="message" ></textarea>
+                        <textarea className="form-control" name="message"></textarea>
                     </div>
                 </div>
 
-                {/* Games dropdown checklist */}
-                <div className="mb-3">
-                  <br></br>
+                <div className="mb-3" ref={dropdownRef}>
                     <label className="form-label">Casino Games</label>
                     <div className="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" onClick={toggleDropdown}>
+                        <button className="btn btn-secondary dropdown-toggle" onClick={toggleDropdown} required>
                             Select Games
                         </button>
                         {showDropdown && (
@@ -110,17 +127,15 @@ const ContactCard = () => {
                                     <input type="checkbox" className="form-check-input" id="craps" value="Craps" onChange={handleGameSelection} checked={selectedGames.includes("Craps")} />
                                     <label className="form-check-label" htmlFor="craps">Craps</label>
                                 </div>
-                                
                             </div>
                         )}
+                        {errorMsg && <div className="alert alert-danger mt-2">{errorMsg}</div>}
                     </div>
                 </div>
-                <br></br>
 
-                {/* Event type dropdown */}
                 <div className="mb-3">
                     <label className="form-label" htmlFor="event">Event Type</label>
-                    <select className="form-control" id="event" onChange={(e) => setEventType(e.target.value)} value={eventType}>
+                    <select className="form-control" id="event" onChange={(e) => setEventType(e.target.value)} value={eventType} required>
                         <option value="">-- Select an event --</option>
                         <option value="Birthday">Birthday</option>
                         <option value="Work">Work</option>
@@ -129,14 +144,11 @@ const ContactCard = () => {
                         <option value="Other">Other</option>
                     </select>
                 </div>
-                <br></br>
 
-                {/* Number of attendees */}
                 <div className="mb-3">
                     <label className="form-label" htmlFor="attendees">Estimated Attendees</label>
-                    <input type="number" className="form-control" id="attendees" onChange={(e) => setNumAttendees(e.target.value)} value={numAttendees} min="1" />
+                    <input type="number" className="form-control" id="attendees" onChange={(e) => setNumAttendees(e.target.value)} value={numAttendees} required min="1" />
                 </div>
-
 
                 <button className="btn btn-primary" type="submit">
                     {formStatus}
@@ -147,5 +159,3 @@ const ContactCard = () => {
 }
 
 export default ContactCard;
-
-
