@@ -20,7 +20,14 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 30px;
+  transition: transform 0.3s ease;
 }
+
+.product:hover {
+  transform: scale(1.05); /* Scales up the product div */
+  cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
 
 .product img {
   width: 100%;
@@ -34,6 +41,14 @@
   margin-bottom: 20px;
 }
 
+.product-container a, 
+.product-container a:visited, 
+.product-container a:hover, 
+.product-container a:active {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Keeps the text color consistent */
+}
+
 .product p {
   font-size: 24px;
   line-height: 1.5;
@@ -43,6 +58,11 @@
 @media (max-width: 768px) {
   .product-container {
       padding: 20px;
+  }
+
+  .product a, .product a:visited, .product a:hover, .product a:active {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Optional: ensures that links use the color of the parent text */
   }
 
   .products-grid {
@@ -68,22 +88,4 @@
   }
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.modal-content {
-  width: 300px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}

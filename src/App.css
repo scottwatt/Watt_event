@@ -42,3 +42,72 @@
   color: #fff;
   font-size: 100px;
 }
+
+.services-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+  padding-top: 80px; /* Increase top padding for more space */
+
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px; /* Adjust as necessary */
+  flex-direction: row; /* Default direction */
+  margin-bottom: 50px; /* Adjust as necessary */
+  margin-top: 50px;
+}
+
+/* .service-row-reverse {
+  flex-direction: row-reverse; /* Reverse the image and text order */
+/* } */
+
+
+/* .service-row:nth-child(even) {
+  flex-direction: row-reverse; /* Flip the image and text order on even rows 
+}*/
+
+.service-text,
+.service-image {
+  flex: 1;
+  padding: 0 20px; /* Adjust as necessary */
+}
+
+.service-image img {
+  width: 100%; /* Full width of the parent container */
+  height: 315px !important; /* Fixed height for all images */
+  object-fit: cover; /* Cover the container without stretching the image */
+  border-radius: 5px; /* Optional: If you want rounded corners */
+}
+
+.service-text h2 {
+  font-size: 2.5rem; /* Adjust as necessary */
+  margin-bottom: 20px;
+}
+
+.service-text p {
+  font-size: 1.25rem; /* Adjust as necessary */
+  line-height: 1.6; /* Adjust for readability */
+}
+
+.service-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional for styled image corners */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .service-row {
+    flex-direction: column; /* Stack elements on mobile */
+  }
+  
+  .service-image img {
+    width: 100%; /* Full-width images on mobile */
+    height: 150 px;
+  }
+  
+}
