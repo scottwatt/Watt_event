@@ -1,0 +1,52 @@
+/* CrapsRules.css */
+.craps-rules-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fdfdfd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .craps-rules-container h1, 
+  .craps-rules-container h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+  }
+  
+  .craps-rules-container dl {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .craps-rules-container dt {
+    font-weight: bold;
+  }
+  
+  .craps-rules-container dd {
+    margin: 0 0 10px 25px;
+    line-height: 1.6;
+  }
+  
+  .craps-rules-container ul {
+    list-style: none;
+    line-height: 2;
+    padding: 0;
+  }
+  
+  .craps-rules-container li::before {
+    content: '• ';
+    color: #0056b3;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  .craps-rules-container p {
+    line-height: 1.6;
+  }
+  

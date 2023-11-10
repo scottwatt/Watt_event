@@ -1,0 +1,99 @@
+:root {
+    --primary-color: #3498db;
+    --text-color: #333;
+    --background-color: #fff;
+    --subtle-text-color: #555;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --line-height: 1.6;
+    --spacing-unit: 20px;
+}
+
+.blackjack-rules {
+    max-width: 900px;
+    margin: var(--spacing-unit) auto;
+    padding: var(--spacing-unit);
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+}
+
+.blackjack-rules h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-unit);
+}
+
+.blackjack-rules p {
+    color: var(--text-color);
+    line-height: var(--line-height);
+    margin-bottom: var(--spacing-unit);
+    font-size: 1rem;
+}
+
+.blackjack-rules h2 {
+    color: var(--primary-color);
+    margin-top: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+}
+
+/* Additional styles for intro paragraph */
+.blackjack-rules > p:first-of-type {
+    font-weight: bold;
+    color: var(--subtle-text-color);
+    font-size: 1.1rem;
+}
+
+/* Style for nested paragraphs within sections for better separation */
+.blackjack-section p + p {
+    margin-top: var(--spacing-unit);
+}
+
+/* Improve the display of lists */
+.blackjack-rules ol, 
+.blackjack-rules ul {
+    padding-left: var(--spacing-unit);
+    list-style-position: inside;
+}
+
+.blackjack-rules li {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    line-height: var(--line-height);
+}
+
+/* Style for 'Stand' and 'Hit' keywords */
+.keyword {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Add some style to links if any */
+.blackjack-rules a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus {
+        color: darken(var(--primary-color), 10%);
+        text-decoration: underline;
+    }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .blackjack-rules {
+        padding: calc(var(--spacing-unit) / 2);
+    }
+
+    .blackjack-rules h1 {
+        font-size: 1.5rem;
+    }
+
+    .blackjack-rules p,
+    .blackjack-rules li {
+        font-size: 0.9rem;
+    }
+}

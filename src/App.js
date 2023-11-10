@@ -6,6 +6,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/Signup';
+import BlackjackRules from './components/BlackjackRules';
+import PokerRules from './components/PokerRules';
+import CrapsRules from './components/CrapsRules';
+import RouletteRules from './components/RouletteRules';
+
 
 function App() {
   return (
@@ -17,6 +22,11 @@ function App() {
           <Route path='/services' component={Services} />
           <Route path='/products' component={Products} />
           <Route path='/sign-up' component={SignUp} />
+          <Route path='/blackjack' component={BlackjackRules} />
+          <Route path='/poker' component={PokerRules} />  
+          <Route path='/craps' component={CrapsRules} /> 
+          <Route path='/roulette' component={RouletteRules} />
+
         </Switch>
       </Router>
     </>

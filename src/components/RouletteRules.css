@@ -1,0 +1,53 @@
+/* RouletteRules.css */
+.roulette-rules-container {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    color: #333;
+  }
+  
+  .roulette-rules-container h1, 
+  .roulette-rules-container h2 {
+    color: #0275d8; /* A nice blue that's not too bright */
+  }
+  
+  .roulette-payouts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .roulette-payouts-table th,
+  .roulette-payouts-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .roulette-payouts-table th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Add a zebra-striping to the table rows */
+  .roulette-payouts-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .roulette-payouts-table tr:hover {
+    background-color: #ddf;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .roulette-rules-container {
+      padding: 10px;
+    }
+    
+    .roulette-payouts-table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+  

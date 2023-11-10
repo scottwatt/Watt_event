@@ -1,0 +1,89 @@
+/* PokerRules.css */
+:root {
+    --primary-color: #3498db;
+    --text-color: #34495e;
+    --background-color: #ecf0f1;
+    --subtle-text-color: #7f8c8d;
+    --border-radius: 10px;
+    --box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --line-height: 1.7;
+    --spacing-unit: 20px;
+  }
+  
+  .rules-page {
+    max-width: 900px;
+    margin: var(--spacing-unit) auto;
+    padding: var(--spacing-unit);
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+  }
+  
+  .rules-header h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-unit);
+  }
+  
+  .rules-content,
+  .rules-section {
+    background: #ffffff;
+    margin-bottom: var(--spacing-unit);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+  }
+  
+  .rules-content h2,
+  .rules-section h2,
+  .rules-section h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+  
+  .rules-content p,
+  .rules-section p {
+    color: var(--text-color);
+    line-height: var(--line-height);
+    margin-bottom: 15px; /* Adjusted for better readability */
+  }
+  
+  .hand-ranking {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: var(--spacing-unit);
+  }
+  
+  .hand-ranking li {
+    margin-bottom: 10px;
+    background: #f8f9f9;
+    padding: 10px;
+    border-left: 3px solid var(--primary-color);
+  }
+  
+  .hand-ranking li strong {
+    color: var(--primary-color);
+  }
+  
+  /* Responsive design adjustments */
+  @media (max-width: 768px) {
+    .rules-page {
+      padding: var(--spacing-unit) calc(var(--spacing-unit) / 2);
+    }
+  
+    .rules-header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .rules-content p,
+    .rules-section p,
+    .hand-ranking li {
+      font-size: 0.95rem;
+    }
+  
+    .hand-ranking li {
+      padding: 5px;
+    }
+  }
+  

@@ -30,13 +30,13 @@ function Cards() {
               path='/services'
             />
             <CardItem
-              src='images/fundraising.jpg'
+              src='images/rtable.jpg'
               text='Help raise money while having a blast!'
               label='Fundraisers'
               path='/services'
             />
             <CardItem
-              src='images/Birthday.jpg'
+              src='images/bday.jpg'
               text='Great for Birthdays and all get togethers.'
               label='Birthdays'
               path='/services'

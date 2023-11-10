@@ -102,6 +102,7 @@ const ContactCard = () => {
                         <textarea className="form-control" name="message"></textarea>
                     </div>
                 </div>
+                <br />
 
                 <div className="mb-3" ref={dropdownRef}>
                     <label className="form-label">Casino Games</label>
@@ -132,6 +133,7 @@ const ContactCard = () => {
                         {errorMsg && <div className="alert alert-danger mt-2">{errorMsg}</div>}
                     </div>
                 </div>
+                <br />
 
                 <div className="mb-3">
                     <label className="form-label" htmlFor="event">Event Type</label>
