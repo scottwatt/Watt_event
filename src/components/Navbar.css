@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
 .navbar {
-  background: #1a1a1a; /* A dark background for a professional look */
+  background: tan; /* A dark background for a professional look */
   height: 80px;
   display: flex;
   justify-content: center;
@@ -35,15 +35,15 @@
 }
 
 #logo {
-  height: 50px; /* Control the image size here */
-  width: auto;
-  margin-right: 10px; /* Add some space between the logo and the text */
+  height: 30vh; /* Control the image size here */
+  width: 30vh;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 20px; /* Space out the menu items */
+  /* display: none;  */
 }
 
 .nav-item {
@@ -91,6 +91,31 @@
   color: #1a1a1a; /* Dark text on hover/active */
 }
 
+@keyframes roll {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.poker-chip {
+  position: absolute;
+  left: -500px; /* Start off-screen */
+  height: 30vh;
+  width: 30vh;
+  transition: transform 0.5s ease-in-out;
+  /* More styling as needed */
+}
+
+.poker-chip.roll-in {
+  animation: roll 2.5s forwards;
+}
+
+
 @media screen and (max-width: 960px) {
   .navbar-container {
     padding: 0 30px; /* Reduced padding on mobile */
@@ -104,15 +129,28 @@
     top: 80px; /* Below the navbar */
     left: -100%;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: all 0.1s ease;
     background: #242222; /* Dark background for mobile menu */
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .nav-menu.active {
     left: 0;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: all 0s ease;
     z-index: 1;
+    animation: fadeIn 0s ease-in-out forwards;
+    animation-delay: 1s;
+    display: flex;
   }
 
   .nav-links {

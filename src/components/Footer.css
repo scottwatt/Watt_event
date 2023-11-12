@@ -1,5 +1,5 @@
 .footer-container {
-    background-color: #242424;
+    background-color: tan;
     padding: 4rem 0 2rem 0;
     display: flex;
     flex-direction: column;
@@ -115,6 +115,11 @@
     margin: 40px auto 0 auto;
   }
   
+  .footerLogo {
+    height: 10vh;
+    width: 10vh;
+  }
+
   .social-icons {
     display: flex;
     justify-content: space-between;
@@ -162,4 +167,12 @@
   }
   
   @media screen and (max-width: 768px) {
+    .footer-logo {
+      margin-left: 0;
+      margin-bottom: 16px;
+    }
+  
+    .social-logo {
+      margin-left: 0;
+    }
   }
