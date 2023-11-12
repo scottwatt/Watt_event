@@ -4,6 +4,13 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use((req, res, next) => {
+  if (req.header('x-forwarded-proto') !== 'https')
+    res.redirect(`https://${req.header('host')}${req.url}`)
+  else
+    next();
+});
+
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 

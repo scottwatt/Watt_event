@@ -91,32 +91,33 @@
   color: #1a1a1a; /* Dark text on hover/active */
 }
 
-@keyframes roll {
-  0% {
-    transform: translateX(-100%) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) rotate(360deg);
-    opacity: 1;
-  }
-}
-
-.poker-chip {
-  position: absolute;
-  left: -500px; /* Start off-screen */
-  height: 30vh;
-  width: 30vh;
-  transition: transform 0.5s ease-in-out;
-  /* More styling as needed */
-}
-
-.poker-chip.roll-in {
-  animation: roll 2.5s forwards;
-}
 
 
 @media screen and (max-width: 960px) {
+  
+  @keyframes roll {
+    0% {
+      transform: translateX(-100%) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%) rotate(360deg);
+      opacity: 1;
+    }
+  }
+  
+  .poker-chip {
+    position: absolute;
+    left: -500px; /* Start off-screen */
+    height: 30vh;
+    width: 30vh;
+    transition: transform 0.5s ease-in-out;
+    /* More styling as needed */
+  }
+  
+  .poker-chip.roll-in {
+    animation: roll 2.5s forwards;
+  }
   .navbar-container {
     padding: 0 30px; /* Reduced padding on mobile */
   }
