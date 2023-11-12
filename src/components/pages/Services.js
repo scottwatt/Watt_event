@@ -15,8 +15,8 @@ class Services extends React.Component {
   <br></br>
   <div className="service-row">
     <div className="service-text">
-      <h2>Birthday Parties</h2>
-      <p>Throw a memorable birthday party with our help! We offer customized party packages that include a variety of casino games.</p>
+      <h2>Corporate Events</h2>
+      <p>Poker parties can add a unique twist to corporate events, offering a fun and engaging way to encourage team building and networking. The thrill of the game, combined with the chance to interact outside of the usual office environment, helps break down barriers and promote interactions among colleagues. A poker-themed corporate event can also be a fantastic way to entertain clients, creating a relaxed atmosphere conducive to building stronger business relationships.</p>
     </div>
     <div className="service-image">
       <img src='images/WEtables.jpg' alt="Birthday Parties" />
@@ -28,13 +28,31 @@ class Services extends React.Component {
     </div>
     <div className="service-text">
       <h2>Fundraisers</h2>
-      <p>Planning a fundraiser can be challenging, but we're here to make it easier. We offer event planning services to help you organize a successful fundraiser that raises funds for your cause.</p>
+      <p>A poker tournament can serve as an exciting and profitable way to raise money for your cause or organization. Participants get the chance to enjoy a competitive game of poker while knowing their buy-ins are going towards a good cause. Such events often attract a diverse crowd and can be more engaging than traditional fundraising methods. The element of skill and luck in poker also adds to the excitement, encouraging higher participation and potentially greater donations.</p>
     </div>
   </div>
   <div className="service-row">
     <div className="service-text">
-      <h2>Parties</h2>
-      <p>Whether you're celebrating a graduation, anniversary, or any other special occasion, we can help you throw a party that your guests will never forget. From themed parties to elegant soirees, we can make it happen.</p>
+      <h2>Parties</h2><ul class="event-descriptions">
+  <li>
+    <strong>Sports Viewing Parties:</strong> Hosting a poker party during a major sports event can enhance the excitement. Guests can play hands during halftime or breaks in the action, making for a dynamic and entertaining experience.
+  </li>
+  <li>
+    <strong>Anniversary Parties:</strong> Celebrate a milestone anniversary with a poker party as a unique way to mark the special occasion. It offers couples and their guests an evening filled with excitement and friendly competition.
+  </li>
+  <li>
+    <strong>Graduation Parties:</strong> Honor the graduate with a poker party, bringing friends and family together for a night of fun and celebration of hard work and achievements.
+  </li>
+  <li>
+    <strong>Retirement Parties:</strong> A poker party for retirement offers the retiree a chance to enjoy leisure time with colleagues, friends, and family in a lively game night.
+  </li>
+  <li>
+    <strong>Birthday Parties:</strong> A poker party adds an element of anticipation and excitement to birthday festivities, perfect for bonding with guests over a shared love of the game.
+  </li>
+  <li>
+    <strong>Bachelor/Bachelorette Parties:</strong> For a classy twist on pre-wedding celebrations, a poker party provides excitement and an opportunity for the bridal party and friends to bond.
+  </li>
+</ul>
     </div>
     <div className="service-image">
       <img src='images/watteventsseating.jpg' alt="Parties" />

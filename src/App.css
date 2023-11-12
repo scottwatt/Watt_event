@@ -107,15 +107,22 @@
   
   .service-image img {
     width: 100%; /* Full-width images on mobile */
-    height: 150 px;
+    height: auto;
+    margin-bottom: 20px;
   }
 
   .service-row:nth-child(odd) {
-  flex-direction: row-reverse; 
+  flex-direction: column-reverse; 
   }
 
   .service-row:nth-child(even) {
-    flex-direction: row; 
+    flex-direction: column; 
     }
+
+    .service-text,
+    .service-image {
+      min-width: 100%;
+    }
+    
   
 }

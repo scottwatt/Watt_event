@@ -37,8 +37,8 @@ function Cards() {
             />
             <CardItem
               src='images/bday.jpg'
-              text='Great for Birthdays and all get togethers.'
-              label='Birthdays'
+              text='Enhance team dynamics with a thrilling corporate poker party.'
+              label='Corporate Events'
               path='/services'
             />
           </ul>
