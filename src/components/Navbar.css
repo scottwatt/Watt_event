@@ -1,181 +1,169 @@
+/* Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    z-index: 100 !important;
-    top: 0;
-  }
-  .btn, .btn-mobile {
-    display: inline;
+  background: #1a1a1a; /* A dark background for a professional look */
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
 }
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Align items to the edges */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 50px;
+  max-width: 1500px;
+}
+
+.navbar-logo {
+  color: #fff;
+  justify-self: start;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.5rem; /* Increased size for the logo text */
+  display: flex;
+  align-items: center;
+}
+
 #logo {
-  height: 60px; /* Or whatever height you prefer, but should be less than navbar's height */
+  height: 50px; /* Control the image size here */
   width: auto;
-  transition: 0.5s; /* For a smooth transition on resizing */
-  padding-right: 10px; /* To provide some spacing between the logo and any subsequent elements */
+  margin-right: 10px; /* Add some space between the logo and the text */
 }
 
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px; /* Space out the menu items */
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 80px; /* Align to the navbar height */
+}
+
+.nav-links {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links:hover {
+  color: #d1d1d1; /* A lighter color on hover */
+}
+
+.fa-times, .fa-bars {
+  color: #fff;
+}
+
+.menu-icon {
+  display: none; /* Hidden until needed on mobile */
+}
+
+.btn, .btn--outline {
+  border: 1px solid #fff; /* Border color */
+  background: transparent; /* Transparent background */
+  width: 100px; /* Width of button */
+  color: #fff; /* White text */
+  padding: 10px 20px; /* Padding for the button */
+  font-size: 1rem; /* Font size */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+  transition: all 0.3s ease-in-out; /* Smooth transition for background and color changes */
+}
+
+.btn--outline:hover, .btn--outline:active {
+  background: #fff; /* White background on hover/active */
+  color: #1a1a1a; /* Dark text on hover/active */
+}
+
+@media screen and (max-width: 960px) {
   .navbar-container {
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    height: 80px;
-    max-width: 1500px;
+    padding: 0 30px; /* Reduced padding on mobile */
   }
-  
-  .navbar-logo {
-    color: #fff;
-    justify-self: start;
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  
+
   .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
-    list-style: none;
-    text-align: center;
-    width: 60vw;
-    justify-content: end;
-    margin-right: 2rem;
+    flex-direction: column; /* Stack the menu items on mobile */
+    width: 100%;
+    /* height: 50vh; */
+    position: absolute;
+    top: 80px; /* Below the navbar */
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background: #242222; /* Dark background for mobile menu */
   }
-  
-  .nav-item {
-    height: 80px;
+
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
   }
-  
+
   .nav-links {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    height: 100%;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
   }
-  
+
   .nav-links:hover {
-    border-bottom: 4px solid #fff;
-    transition: all 0.2s ease-out;
-  }
-  
-  .fa-times {
-    color: #fff;
-    font-size: 2rem;
+    background-color: #fff;
+    color: #242424;
+    border-radius: 0;
   }
 
-  .fa-bars {
-    color: #fff;
-  }
-  
-  .nav-links-mobile {
-    display: none;
-  }
-  
   .menu-icon {
-    display: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
   }
-  
-  @media screen and (max-width: 960px) {
 
-    #logo {
-      height: 40px; /* Resize the logo height for smaller screens */
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    background: transparent;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
   }
 
-  .svg-inline--fa {
-      color: white;
-  }
-    .fa-times {
-      color: #fff !important;
-      font-size: 2rem;
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
   }
   
-    .NavbarItems {
-      position: relative;
-    }
-  
-    .nav-menu {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100vh;
-      position: absolute;
-      top: 0;
-      left: -100%;
-      justify-content: space-evenly;
-      opacity: 1;
-      transition: all 0.5s ease;
-    }
-  
-    .nav-menu.active {
-      background: #242222;
-      left: 0;
-      opacity: 1;
-      transition: all 0.5s ease;
-    }
-  
-    .nav-links {
-      height: auto; /* We don't restrict the height so it can grow and take the necessary space */
-        flex-grow: 1; /* This allows the links to grow and take up available space equally */
-        display: flex;
-        align-items: center; /* This centers the text vertically */
-        justify-content: center;
-    }
-  
-    .nav-links:hover {
-      background-color: #fff;
-      color: #242424;
-      border-radius: 0;
-    }
-  
-    .navbar-logo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(25%, 50%);
-    }
-  
-    .menu-icon {
-      /* display: block; */
-      position: absolute;
-      z-index: 1000;
-      top: 37%;  /* This positions the top of the icon at 60% down from the top of its container */
-      right: 40px;
-      font-size: 1.8rem;
-      cursor: pointer;
-      visibility: visible !important;
-      opacity: 1 !important;
-      display: block !important;
-    }
-  
-  
-    .nav-links-mobile {
-      display: block;
-      text-align: center;
-      margin: 2rem auto;
-      border-radius: 4px;
-      width: 80%;
-      text-decoration: none;
-      font-size: 1.5rem;
-      background-color: transparent;
-      color: #fff;
-      padding: 14px 20px;
-      border: 1px solid #fff;
-      transition: all 0.3s ease-out;
-    }
-  
-    .nav-links-mobile:hover {
-      background: #fff;
-      color: #242424;
-      transition: 250ms;
-    }
+  .btn {
+    display: none; /* Hide button on mobile */
+    text-align: center;
   }
+
+  .btn-mobile {
+    display: block;
+    margin: 0 auto; /* Center the button */
+  }
+}

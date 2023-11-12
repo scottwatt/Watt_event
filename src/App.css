@@ -109,5 +109,13 @@
     width: 100%; /* Full-width images on mobile */
     height: 150 px;
   }
+
+  .service-row:nth-child(odd) {
+  flex-direction: row-reverse; 
+  }
+
+  .service-row:nth-child(even) {
+    flex-direction: row; 
+    }
   
 }
