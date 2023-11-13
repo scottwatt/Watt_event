@@ -144,7 +144,7 @@ const ContactCard = () => {
                                             </div>
                                             <div className="form-check">
                                                 <input type="checkbox" className="form-check-input" id="roullette" value="Roullette" onChange={handleGameSelection} checked={selectedGames.includes("Roullette")} />
-                                                <label className="form-check-label" htmlFor="roullette">Roullette</label>
+                                                <label className="form-check-label" htmlFor="roullette">Roulette</label>
                                             </div>
                                             <div className="form-check">
                                                 <input type="checkbox" className="form-check-input" id="craps" value="Craps" onChange={handleGameSelection} checked={selectedGames.includes("Craps")} />

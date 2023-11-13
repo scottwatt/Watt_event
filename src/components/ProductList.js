@@ -28,7 +28,7 @@ class ProductPage extends React.Component {
       },
       { 
         id: 3, 
-        name: 'Roullette', 
+        name: 'Roulette', 
         price: '$30', 
         image: product3Image,
         route: 'Roulette'
