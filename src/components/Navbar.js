@@ -2,38 +2,29 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const navRef = useRef();
   const [isAnimating, setIsAnimating] = useState(false);
+  const [firstOpen, setFirstOpen] = useState(true);
 
-  const closeMobileMenu = () => setClick(false);
-
-  const openMenu = () => {
-    if (!click) {
+  const toggleMenu = () => {
+    if (firstOpen) {
       setIsAnimating(true);
+      // Delay opening the menu only on the first time
+      setTimeout(() => {
+        setClick(currentClick => !currentClick); // Toggle the click state
+      }, 1000); // Delay in milliseconds
+      setFirstOpen(false); // Ensure subsequent openings are immediate
+    } else {
+      setClick(currentClick => !currentClick); // Toggle the click state immediately
     }
   };
-
-  // Use this function to close the menu without the chip animation
-  const closeMenu = () => {
-    if (click) {
-      setClick(false);
-    }
-  };
-
-  // const handleChipAnimation = () => {
-  //   setIsAnimating(true);
-  // };
 
   const onPokerChipAnimationEnd = () => {
-    setIsAnimating(false); // End the chip animation
-    // Delay setting the menu to active by the same duration as the animation-delay in CSS
-    setTimeout(() => {
-      setClick(!click);
-    }, 1000); // This should match the CSS delay
+    setIsAnimating(false);
   };
 
   useEffect(() => {
@@ -51,10 +42,11 @@ function Navbar() {
   return (
     <nav className='navbar'>
       <div className='navbar-container'>
-        <Link to='/' className='navbar-logo' onClick={closeMenu}>
+        <Link to='/' className='navbar-logo' onClick={toggleMenu}>
           <img src="images/Watt Events.png" id='logo' alt="Watt Events logo" />
         </Link>
-        <div className='menu-icon' onClick={click ? closeMenu : openMenu}>          <FontAwesomeIcon icon={click ? faTimes : faBars} />
+        <div className='menu-icon' onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faBars} />
           {isAnimating && (
             <img
               src="images/PokerChip.png"
@@ -66,22 +58,22 @@ function Navbar() {
         </div>
         <ul ref={navRef} className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+            <Link to='/' className='nav-links' onClick={toggleMenu}>
               Home
             </Link>
           </li>
           <li className='nav-item'>
-            <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
+            <Link to='/services' className='nav-links' onClick={toggleMenu}>
               Services
             </Link>
           </li>
           <li className='nav-item'>
-            <Link to='/products' className='nav-links' onClick={closeMobileMenu}>
+            <Link to='/products' className='nav-links' onClick={toggleMenu}>
               Products
             </Link>
           </li>
           <li className='nav-item'>
-            <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
+            <Link to='/contact' className='nav-links' onClick={toggleMenu}>
               Contact
             </Link>
           </li>

@@ -4,7 +4,7 @@ import Footer from '../Footer';
 import '../../App.css'
 
 
-function SignUp() {
+function Contact() {
   return (
     <>
       <ContactCard />
@@ -13,4 +13,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Contact;

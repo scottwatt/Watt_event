@@ -1,0 +1,25 @@
+.pricing-info {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin: 20px 0;
+  }
+  
+  .pricing-info h2 {
+    margin-bottom: 15px;
+  }
+  
+  .pricing-info button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pricing-info button:hover {
+    background-color: #0056b3;
+  }
+  

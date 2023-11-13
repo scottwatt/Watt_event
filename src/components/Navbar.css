@@ -43,6 +43,7 @@
   display: flex;
   list-style: none;
   gap: 20px; /* Space out the menu items */
+  z-index: 1000;
   /* display: none;  */
 }
 
@@ -112,11 +113,13 @@
     height: 30vh;
     width: 30vh;
     transition: transform 0.5s ease-in-out;
+    z-index: 5100;
     /* More styling as needed */
   }
   
   .poker-chip.roll-in {
-    animation: roll 2.5s forwards;
+    animation: roll 1s forwards;
+    z-index: 5100;
   }
   .navbar-container {
     padding: 0 30px; /* Reduced padding on mobile */
@@ -133,6 +136,7 @@
     transition: all 0.1s ease;
     background: #242222; /* Dark background for mobile menu */
     display: none;
+    z-index: 1000;
   }
 
   @keyframes fadeIn {
@@ -148,7 +152,7 @@
     left: 0;
     opacity: 1;
     transition: all 0s ease;
-    z-index: 1;
+    z-index: 1000;
     animation: fadeIn 0s ease-in-out forwards;
     animation-delay: 1s;
     display: flex;
