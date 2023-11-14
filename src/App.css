@@ -99,6 +99,7 @@
   border-radius: 8px; /* Optional for styled image corners */
 }
 
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .service-row {

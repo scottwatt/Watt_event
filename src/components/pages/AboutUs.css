@@ -1,0 +1,100 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .about-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-hero div {
+    max-width: 600px;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .about-hero p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .about-story,
+  .about-details {
+    max-width: 800px;
+  }
+  
+  .about-story h2,
+  .about-details h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .about-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .about-details ul li {
+    margin-bottom: 10px;
+  }
+  
+  .about-details ul li strong {
+    color: #222;
+  }
+  
+  .contact-button-container {
+    text-align: center; /* Center the button container */
+    margin-top: 20px; /* Add some space above the button */
+  }
+  
+  .contact-button {
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Transition for hover effect */
+  }
+  
+  .contact-button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+  }
+
+  
+  @media (max-width: 768px) {
+    .about-hero {
+      flex-direction: column;
+    }
+  
+    .about-hero img {
+      margin-bottom: 20px;
+    }
+  
+    .about-hero div {
+      text-align: center;
+    }
+  }
+  

@@ -63,6 +63,11 @@ function Navbar() {
             </Link>
           </li>
           <li className='nav-item'>
+            <Link to='/about-us' className='nav-links' onClick={toggleMenu}>
+              About
+            </Link>
+          </li>
+          <li className='nav-item'>
             <Link to='/services' className='nav-links' onClick={toggleMenu}>
               Services
             </Link>
