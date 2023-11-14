@@ -10,29 +10,42 @@ function Navbar() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [firstOpen, setFirstOpen] = useState(true);
 
+  // useEffect(() => {
+  //   console.log("click state updated:", click);
+  // }, [click]);
+  
+
   const toggleMenu = () => {
-    if (firstOpen) {
+      if (firstOpen) {
+      console.log("First open, starting animation and delaying toggle");
       setIsAnimating(true);
-      // Delay opening the menu only on the first time
       setTimeout(() => {
-        setClick(currentClick => !currentClick); // Toggle the click state
-      }, 1000); // Delay in milliseconds
-      setFirstOpen(false); // Ensure subsequent openings are immediate
+        setClick(currentClick =>!currentClick);
+      }, 1000);
+      setFirstOpen(false); 
     } else {
-      setClick(currentClick => !currentClick); // Toggle the click state immediately
+      console.log("Not first open, toggling click state immediately");
+      setClick(currentClick => !currentClick);
     }
   };
+  
+  
 
   const onPokerChipAnimationEnd = () => {
     setIsAnimating(false);
   };
 
+  const menuIconRef = useRef();
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+      console.log("Outside click handler called");
+      if (navRef.current && !navRef.current.contains(event.target) && !menuIconRef.current.contains(event.target)) {
+        console.log("Outside navRef, setting click to false");
         setClick(false);
       }
     };
+    
 
     document.addEventListener('mousedown', handleOutsideClick);
     
@@ -45,7 +58,7 @@ function Navbar() {
         <Link to='/' className='navbar-logo' onClick={toggleMenu}>
           <img src="images/Watt Events.png" id='logo' alt="Watt Events logo" />
         </Link>
-        <div className='menu-icon' onClick={toggleMenu}>
+        <div className='menu-icon' onClick={toggleMenu} ref={menuIconRef}>
           <FontAwesomeIcon icon={faBars} />
           {isAnimating && (
             <img
