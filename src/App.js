@@ -12,6 +12,7 @@ import PokerRules from './components/PokerRules';
 import CrapsRules from './components/CrapsRules';
 import RouletteRules from './components/RouletteRules';
 import TermsOfService from './components/pages/TermsOfService';
+import Footer from './components/Footer';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -41,6 +42,7 @@ function App() {
           <Route path='/roulette' component={RouletteRules} />
           <Route path='/terms-of-service' component={TermsOfService} />
         </Switch>
+        <Footer />
       </Router>
     </>
   );

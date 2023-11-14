@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../Footer';
 import '../../App.css';
 import '../ServicesList.css';
 
@@ -59,7 +58,6 @@ class Services extends React.Component {
     </div>
   </div>
         </div>
-        <Footer />
       </div>
     );
   }
