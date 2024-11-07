@@ -1,0 +1,42 @@
+.casino-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .casino-icons svg {
+    font-size: 2rem;
+    color: var(--primary-gold);
+    animation: iconFloat 3s ease-in-out infinite;
+  }
+  
+  .decorative-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  
+  .separator-line {
+    height: 2px;
+    width: 100px;
+    background: var(--primary-gold);
+    margin: 0 1rem;
+  }
+  
+  .separator-icon {
+    color: var(--primary-gold);
+    font-size: 1.5rem;
+    animation: iconSpin 3s linear infinite;
+  }
+  
+  @keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes iconSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }

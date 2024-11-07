@@ -1,0 +1,37 @@
+:root {
+    /* Casino-themed colors */
+    --primary-gold: #FFD700;
+    --deep-red: #8B0000;
+    --emerald-green: #004d40;
+    --royal-purple: #4A148C;
+    --rich-black: #0A0A0A;
+    --cream: #FFFDD0;
+    --burgundy: #800020;
+    
+    /* Gradients */
+    --gold-gradient: linear-gradient(45deg, #FFD700, #FFA500);
+    --luxury-gradient: linear-gradient(to right, #000000, #434343);
+    --royal-gradient: linear-gradient(45deg, var(--deep-red), var(--royal-purple));
+  
+    /* Animations */
+    --neon-glow: 0 0 10px rgba(255, 215, 0, 0.5),
+                 0 0 20px rgba(255, 215, 0, 0.3),
+                 0 0 30px rgba(255, 215, 0, 0.1);
+  }
+  
+  /* Global Animations */
+  @keyframes neonPulse {
+    0% { box-shadow: var(--neon-glow); }
+    50% { box-shadow: none; }
+    100% { box-shadow: var(--neon-glow); }
+  }
+  
+  @keyframes cardShuffle {
+    0% { transform: translateX(-100%) rotate(-45deg); opacity: 0; }
+    100% { transform: translateX(0) rotate(0); opacity: 1; }
+  }
+  
+  @keyframes diceRoll {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
