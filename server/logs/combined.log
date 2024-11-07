@@ -322,3 +322,118 @@
 {"level":"info","message":"GET /api/bookings/availability/2024-11-26","timestamp":"2024-11-07T05:52:18.045Z"}
 {"level":"info","message":"GET /api/bookings/availability/2024-11-30","timestamp":"2024-11-07T05:52:18.049Z"}
 {"level":"info","message":"GET /api/bookings/availability/2024-11-29","timestamp":"2024-11-07T05:52:18.064Z"}
+{"level":"info","message":"Verifying email configuration...","timestamp":"2024-11-07T17:15:01.003Z"}
+{"level":"info","message":"Email configuration verified","timestamp":"2024-11-07T17:15:01.005Z"}
+{"level":"info","message":"Server running on port 5001","timestamp":"2024-11-07T17:15:01.102Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-11-07T17:15:01.286Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2024-11-07T17:18:57.778Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2024-11-07T17:19:04.446Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2024-11-07T17:19:10.482Z"}
+{"level":"info","message":"POST /api/auth/forgot-password","timestamp":"2024-11-07T17:19:18.559Z"}
+{"level":"info","message":"Processing forgot password request for:","timestamp":"2024-11-07T17:19:18.561Z"}
+{"level":"info","message":"Generated new password for user","timestamp":"2024-11-07T17:19:18.570Z"}
+{"level":"info","message":"Updated user password in database","timestamp":"2024-11-07T17:19:18.689Z"}
+{"level":"info","message":"Preparing to send new password email","timestamp":"2024-11-07T17:19:18.689Z"}
+{"level":"info","message":"New password email sent successfully","timestamp":"2024-11-07T17:19:18.924Z"}
+{"level":"info","message":"Password reset email sent successfully","timestamp":"2024-11-07T17:19:18.925Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2024-11-07T17:19:42.581Z"}
+{"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:19:42.733Z"}
+{"level":"info","message":"POST /api/auth/change-password","timestamp":"2024-11-07T17:19:56.712Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:19:59.617Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:20:03.570Z"}
+{"level":"info","message":"GET /api/admin/users","timestamp":"2024-11-07T17:20:04.315Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:20:05.066Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:20:17.710Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:20:23.863Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:26:42.546Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:26:43.347Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:28:21.590Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:28:23.567Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:30:41.592Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:31:10.583Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:31:35.617Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:31:40.346Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:31:41.130Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:32:41.034Z"}
+{"level":"info","message":"GET /api/admin/users","timestamp":"2024-11-07T17:32:41.665Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:32:54.696Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:33:06.311Z"}
+{"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:33:06.940Z"}
+{"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:33:10.858Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:33:13.168Z"}
+{"level":"info","message":"DELETE /api/admin/bookings/672c35df21f1f203b2797400","timestamp":"2024-11-07T17:33:17.598Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:33:17.643Z"}
+{"level":"info","message":"DELETE /api/admin/bookings/672c484721f1f203b2797409","timestamp":"2024-11-07T17:33:19.991Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:33:20.008Z"}
+{"level":"info","message":"GET /api/admin/users","timestamp":"2024-11-07T17:33:21.062Z"}
+{"level":"info","message":"DELETE /api/admin/users/672abbd81b70f23b5b6b5ecf","timestamp":"2024-11-07T17:33:24.991Z"}
+{"level":"info","message":"DELETE /api/admin/users/672c335b21f1f203b27973ec","timestamp":"2024-11-07T17:33:29.508Z"}
+{"level":"info","message":"POST /api/auth/login","timestamp":"2024-11-07T17:33:47.834Z"}
+{"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:33:47.993Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:33:52.484Z"}
+{"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:33:53.183Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:33:55.758Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:33:58.778Z"}
+{"level":"info","message":"GET /api/admin/users","timestamp":"2024-11-07T17:33:59.445Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:34:00.243Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:35:57.791Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:37:00.818Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:37:02.697Z"}
+{"level":"info","message":"GET /api/admin/users","timestamp":"2024-11-07T17:37:03.566Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:37:04.296Z"}
+{"level":"info","message":"GET /api/bookings/availability/2024-11-21","timestamp":"2024-11-07T17:37:33.837Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-11-07T17:37:33.854Z"}
+{"level":"info","message":"GET /api/bookings/availability/2024-11-21","timestamp":"2024-11-07T17:37:46.760Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-11-07T17:37:46.770Z"}
+{"level":"info","message":"GET /api/bookings/availability/2024-11-21","timestamp":"2024-11-07T17:37:51.294Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-11-07T17:37:51.304Z"}
+{"level":"info","message":"GET /api/bookings/availability/2024-11-21","timestamp":"2024-11-07T17:37:55.763Z"}
+{"level":"info","message":"POST /api/bookings","timestamp":"2024-11-07T17:37:55.775Z"}
+{"level":"info","message":"Starting sendBookingReceivedEmail...","timestamp":"2024-11-07T17:37:55.817Z","userEmail":"scottwattenbarger@gmail.com"}
+{"bookingDate":"Wednesday, November 20, 2024","bookingTime":"6:00 PM","contactEmail":"wattenbargerevent@gmail.com","contactPhone":"661-302-0115","eventType":"Birthday Party","games":"Blackjack, Poker","guestCount":"90","level":"info","message":"Preparing email with variables:","timestamp":"2024-11-07T17:37:55.867Z"}
+{"level":"info","message":"Sending email with data:","template":"booking_received","timestamp":"2024-11-07T17:37:55.867Z","to":"scottwattenbarger@gmail.com","variables":{"bookingDate":"Wednesday, November 20, 2024","bookingTime":"6:00 PM","contactEmail":"wattenbargerevent@gmail.com","contactPhone":"661-302-0115","eventType":"Birthday Party","games":"Blackjack, Poker","guestCount":"90"}}
+{"level":"info","message":"Booking received email sent successfully:","timestamp":"2024-11-07T17:37:56.462Z"}
+{"level":"info","message":"Booking received email sent to customer","timestamp":"2024-11-07T17:37:56.462Z"}
+{"level":"info","message":"Starting sendBookingNotification...","timestamp":"2024-11-07T17:37:56.462Z","userEmail":"scottwattenbarger@gmail.com"}
+{"bookingDate":"Wednesday, November 20, 2024","bookingTime":"6:00 PM","customerEmail":"scottwattenbarger@gmail.com","eventType":"Birthday Party","games":"Blackjack, Poker","guestCount":"90","level":"info","message":"Preparing admin notification with variables:","phoneNumber":"661-717-2536","specialRequests":"None","timestamp":"2024-11-07T17:37:56.463Z"}
+{"level":"info","message":"Admin notification sent successfully:","timestamp":"2024-11-07T17:37:56.771Z"}
+{"level":"info","message":"Booking notification sent to admin","timestamp":"2024-11-07T17:37:56.771Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:37:56.781Z"}
+{"level":"info","message":"PATCH /api/admin/bookings/672cfaf389b783b06ed4836e/status","timestamp":"2024-11-07T17:38:05.226Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:38:05.254Z"}
+{"level":"info","message":"PATCH /api/admin/bookings/672cfaf389b783b06ed4836e/status","timestamp":"2024-11-07T17:38:07.578Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:38:07.596Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:38:17.699Z"}
+{"level":"info","message":"GET /api/admin/users","timestamp":"2024-11-07T17:38:18.436Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:38:19.135Z"}
+{"level":"info","message":"DELETE /api/admin/bookings/672cfaf389b783b06ed4836e","timestamp":"2024-11-07T17:38:23.683Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:38:23.697Z"}
+{"level":"info","message":"GET /api/bookings/availability/2024-11-22","timestamp":"2024-11-07T17:38:49.839Z"}
+{"level":"info","message":"POST /api/bookings","timestamp":"2024-11-07T17:38:49.849Z"}
+{"level":"info","message":"Starting sendBookingReceivedEmail...","timestamp":"2024-11-07T17:38:49.859Z","userEmail":"scottwattenbarger@gmail.com"}
+{"bookingDate":"Thursday, November 21, 2024","bookingTime":"6:00 PM","contactEmail":"wattenbargerevent@gmail.com","contactPhone":"661-302-0115","eventType":"Fundraiser","games":"Blackjack","guestCount":"9","level":"info","message":"Preparing email with variables:","timestamp":"2024-11-07T17:38:49.859Z"}
+{"level":"info","message":"Sending email with data:","template":"booking_received","timestamp":"2024-11-07T17:38:49.859Z","to":"scottwattenbarger@gmail.com","variables":{"bookingDate":"Thursday, November 21, 2024","bookingTime":"6:00 PM","contactEmail":"wattenbargerevent@gmail.com","contactPhone":"661-302-0115","eventType":"Fundraiser","games":"Blackjack","guestCount":"9"}}
+{"level":"info","message":"Booking received email sent successfully:","timestamp":"2024-11-07T17:38:50.176Z"}
+{"level":"info","message":"Booking received email sent to customer","timestamp":"2024-11-07T17:38:50.176Z"}
+{"level":"info","message":"Starting sendBookingNotification...","timestamp":"2024-11-07T17:38:50.176Z","userEmail":"scottwattenbarger@gmail.com"}
+{"bookingDate":"Thursday, November 21, 2024","bookingTime":"6:00 PM","customerEmail":"scottwattenbarger@gmail.com","eventType":"Fundraiser","games":"Blackjack","guestCount":"9","level":"info","message":"Preparing admin notification with variables:","phoneNumber":"234-231-4213","specialRequests":"None","timestamp":"2024-11-07T17:38:50.177Z"}
+{"level":"info","message":"Admin notification sent successfully:","timestamp":"2024-11-07T17:38:50.515Z"}
+{"level":"info","message":"Booking notification sent to admin","timestamp":"2024-11-07T17:38:50.515Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:38:50.528Z"}
+{"level":"info","message":"PATCH /api/admin/bookings/672cfb2989b783b06ed4838d/status","timestamp":"2024-11-07T17:40:02.065Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:40:02.131Z"}
+{"level":"info","message":"PATCH /api/admin/bookings/672cfb2989b783b06ed4838d/status","timestamp":"2024-11-07T17:40:04.384Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:40:04.401Z"}
+{"level":"info","message":"DELETE /api/admin/bookings/672cfb2989b783b06ed4838d","timestamp":"2024-11-07T17:40:08.147Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:40:08.157Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:40:09.402Z"}
+{"level":"info","message":"GET /api/admin/users","timestamp":"2024-11-07T17:40:10.587Z"}
+{"level":"info","message":"DELETE /api/admin/users/672abbd81b70f23b5b6b5ecf","timestamp":"2024-11-07T17:40:14.801Z"}
+{"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:40:20.100Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:40:38.655Z"}
+{"level":"info","message":"GET /api/bookings/availability/2024-11-20","timestamp":"2024-11-07T17:40:55.251Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-11-07T17:40:55.271Z"}
+{"level":"info","message":"GET /api/auth/me","timestamp":"2024-11-07T17:41:01.070Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:41:01.137Z"}
+{"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:41:37.327Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:41:38.021Z"}

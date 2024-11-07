@@ -41,7 +41,7 @@ const ContactCard = () => {
                     <div className="business-info">
                         <h3>Watt Events</h3>
                         <p><FiMapPin /> Bakersfield, California</p>
-                        <p><FiPhone /> 661-330-0115</p>
+                        <p><FiPhone /> 661-302-0115</p>
                         <div className="google-map">
                             <iframe
                                 title="Watt Events Location"
