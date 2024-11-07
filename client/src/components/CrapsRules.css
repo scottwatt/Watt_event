@@ -1,52 +1,209 @@
 /* CrapsRules.css */
+
 .craps-rules-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fdfdfd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.craps-rules-container h1 {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #f0f0f0;
+}
+
+/* Introduction Section */
+.craps-intro {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.craps-intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Gameplay Section */
+.craps-gameplay {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+}
+
+.craps-gameplay h2 {
+  color: #2c5282;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.craps-gameplay p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+/* Definition List Styles */
+dl {
+  display: grid;
+  gap: 1.5rem;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+dt {
+  font-weight: 600;
+  color: #2c5282;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+dd {
+  color: #4a5568;
+  line-height: 1.5;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid #e2e8f0;
+}
+
+/* Betting Section */
+.betting-section {
+  margin-top: 3rem;
+}
+
+.betting-section h2 {
+  color: #2c5282;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.bet-category {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.bet-category h3 {
+  color: #1a365d;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.bet-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.bet-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bet-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.bet-name {
+  font-weight: 500;
+  color: #2d3748;
+  flex: 1;
+}
+
+.bet-payout {
+  background: #ebf4ff;
+  color: #2c5282;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.commission-note {
+  color: #718096;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-left: 0.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .craps-rules-container {
+    padding: 1rem;
+    margin: 1rem;
   }
-  
-  .craps-rules-container h1, 
-  .craps-rules-container h2 {
-    color: #0056b3;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
+
+  .craps-rules-container h1 {
+    font-size: 2rem;
   }
-  
-  .craps-rules-container dl {
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
+
+  .bet-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
   }
-  
-  .craps-rules-container dt {
-    font-weight: bold;
+
+  .bet-payout {
+    margin-left: 0;
   }
-  
-  .craps-rules-container dd {
-    margin: 0 0 10px 25px;
-    line-height: 1.6;
+
+  .commission-note {
+    margin-left: 0;
+    display: block;
   }
-  
-  .craps-rules-container ul {
-    list-style: none;
-    line-height: 2;
+
+  dl {
+    gap: 1rem;
+  }
+
+  dt {
+    font-size: 1rem;
+  }
+
+  dd {
+    font-size: 0.95rem;
+    margin-left: 0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .craps-rules-container {
+    box-shadow: none;
     padding: 0;
   }
-  
-  .craps-rules-container li::before {
-    content: '• ';
-    color: #0056b3;
-    font-weight: bold;
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
+
+  .bet-item {
+    break-inside: avoid;
   }
-  
-  .craps-rules-container p {
-    line-height: 1.6;
+
+  .bet-payout {
+    border: 1px solid #ccc;
   }
-  
+}

@@ -23,7 +23,7 @@ class Services extends React.Component {
   </div>
   <div className="service-row service-row-reverse">
     <div className="service-image">
-      <img src='images/blackjack2.jpg' alt="Fundraisers" />
+      <img src='images/WeTourney.jpg' alt="Fundraisers" />
     </div>
     <div className="service-text">
       <h2>Fundraisers</h2>
@@ -54,7 +54,7 @@ class Services extends React.Component {
 </ul>
     </div>
     <div className="service-image">
-      <img src='images/watteventsseating.jpg' alt="Parties" />
+      <img src='images/WeBJ.jpg' alt="Parties" />
     </div>
   </div>
         </div>

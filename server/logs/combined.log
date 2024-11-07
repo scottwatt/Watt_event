@@ -437,3 +437,11 @@
 {"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:41:01.137Z"}
 {"level":"info","message":"GET /api/bookings/my","timestamp":"2024-11-07T17:41:37.327Z"}
 {"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:41:38.021Z"}
+{"level":"info","message":"Verifying email configuration...","timestamp":"2024-11-07T17:48:32.586Z"}
+{"level":"info","message":"Email configuration verified","timestamp":"2024-11-07T17:48:32.587Z"}
+{"level":"info","message":"Server running on port 5001","timestamp":"2024-11-07T17:48:32.697Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-11-07T17:48:32.870Z"}
+{"level":"info","message":"GET /api/auth/me","timestamp":"2024-11-07T17:48:35.328Z"}
+{"level":"info","message":"GET /api/auth/me","timestamp":"2024-11-07T17:51:27.387Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:59:13.127Z"}
+{"level":"info","message":"GET /api/admin/bookings","timestamp":"2024-11-07T17:59:15.076Z"}
