@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.af642265.css",
+    "main.js": "/static/js/main.fa5936e8.js",
+    "static/media/roulettetable.jpg": "/static/media/roulettetable.764a7a0dff95d7d688dd.jpg",
+    "static/media/cards.jpg": "/static/media/cards.ecf3159209f75046068d.jpg",
+    "static/media/texashold.jpg": "/static/media/texashold.8cd8d9625155b2bd4108.jpg",
+    "static/media/casino-background.jpg": "/static/media/casino-background.af488c2aaa2fa4eea6aa.jpg",
+    "index.html": "/index.html",
+    "main.af642265.css.map": "/static/css/main.af642265.css.map",
+    "main.fa5936e8.js.map": "/static/js/main.fa5936e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af642265.css",
+    "static/js/main.fa5936e8.js"
+  ]
+}

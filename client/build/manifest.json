@@ -1,0 +1,25 @@
+{
+  "short_name": "Watt Events",
+  "name": "Watt Events - Casino Rental Services",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "Wattenbarger Events.png", 
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Wattenbarger Events.png", 
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "tan", 
+  "background_color": "#ffffff"
+}
