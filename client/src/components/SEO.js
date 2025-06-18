@@ -1,6 +1,5 @@
 // client/src/components/SEO.js
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import React, { useEffect } from 'react';
 
 const SEO = ({ 
   title, 
@@ -15,44 +14,93 @@ const SEO = ({
   const defaultDescription = "Professional casino party rentals in Bakersfield, California. Poker, Blackjack, Roulette & Craps tables for corporate events, parties & fundraisers. Call 661-302-0115";
   const baseUrl = "https://wattevent.com";
   
-  return (
-    <Helmet>
-      <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
-      <meta name="description" content={description || defaultDescription} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={canonicalUrl || baseUrl} />
-      
-      {/* Open Graph */}
-      <meta property="og:title" content={title || siteTitle} />
-      <meta property="og:description" content={description || defaultDescription} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={canonicalUrl || baseUrl} />
-      <meta property="og:image" content={`${baseUrl}${ogImage}`} />
-      <meta property="og:locale" content="en_US" />
-      <meta property="og:site_name" content="Watt Events" />
-      
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title || siteTitle} />
-      <meta name="twitter:description" content={description || defaultDescription} />
-      <meta name="twitter:image" content={`${baseUrl}${ogImage}`} />
-      
-      {/* Local Business Info */}
-      <meta name="geo.region" content="US-CA" />
-      <meta name="geo.placename" content="Bakersfield" />
-      <meta name="geo.position" content="35.3733;-119.0187" />
-      <meta name="ICBM" content="35.3733, -119.0187" />
-      
-      {/* Schema Markup */}
-      {schemaMarkup && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaMarkup)}
-        </script>
-      )}
-      
-      {noindex && <meta name="robots" content="noindex,nofollow" />}
-    </Helmet>
-  );
+  useEffect(() => {
+    // Update document title
+    document.title = title ? `${title} | ${siteTitle}` : siteTitle;
+    
+    // Update or create meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = description || defaultDescription;
+    
+    // Update or create meta keywords
+    if (keywords) {
+      let metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (!metaKeywords) {
+        metaKeywords = document.createElement('meta');
+        metaKeywords.name = 'keywords';
+        document.head.appendChild(metaKeywords);
+      }
+      metaKeywords.content = keywords;
+    }
+    
+    // Update or create canonical link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = canonicalUrl || baseUrl;
+    
+    // Add schema markup if provided
+    if (schemaMarkup) {
+      let schemaScript = document.querySelector('#schema-script');
+      if (!schemaScript) {
+        schemaScript = document.createElement('script');
+        schemaScript.id = 'schema-script';
+        schemaScript.type = 'application/ld+json';
+        document.head.appendChild(schemaScript);
+      }
+      schemaScript.textContent = JSON.stringify(schemaMarkup);
+    }
+    
+    // Open Graph meta tags
+    const ogTags = [
+      { property: 'og:title', content: title || siteTitle },
+      { property: 'og:description', content: description || defaultDescription },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: canonicalUrl || baseUrl },
+      { property: 'og:image', content: `${baseUrl}${ogImage}` },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:site_name', content: 'Watt Events' }
+    ];
+    
+    ogTags.forEach(tag => {
+      let ogMeta = document.querySelector(`meta[property="${tag.property}"]`);
+      if (!ogMeta) {
+        ogMeta = document.createElement('meta');
+        ogMeta.setAttribute('property', tag.property);
+        document.head.appendChild(ogMeta);
+      }
+      ogMeta.content = tag.content;
+    });
+    
+    // Twitter Card meta tags
+    const twitterTags = [
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: title || siteTitle },
+      { name: 'twitter:description', content: description || defaultDescription },
+      { name: 'twitter:image', content: `${baseUrl}${ogImage}` }
+    ];
+    
+    twitterTags.forEach(tag => {
+      let twitterMeta = document.querySelector(`meta[name="${tag.name}"]`);
+      if (!twitterMeta) {
+        twitterMeta = document.createElement('meta');
+        twitterMeta.name = tag.name;
+        document.head.appendChild(twitterMeta);
+      }
+      twitterMeta.content = tag.content;
+    });
+    
+  }, [title, description, keywords, canonicalUrl, ogImage, schemaMarkup, siteTitle, defaultDescription, baseUrl]);
+  
+  return null; // This component doesn't render anything
 };
 
 export default SEO;

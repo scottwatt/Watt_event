@@ -1,4 +1,4 @@
-// client/src/components/HeroSection.js - Updated for SEO
+// client/src/components/HeroSection.js - Image Background Version
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
@@ -6,14 +6,7 @@ import './HeroSection.css';
 
 function HeroSection() {
   return (
-    <div className='hero-container'>
-      <video 
-        src='/videos/hero.mp4'
-        autoPlay
-        loop
-        muted
-        aria-label="Casino party equipment in Bakersfield"
-      />
+    <div className='hero-container hero-image-bg'>
       <div className='hero-content'>
         <h1>Casino Rentals Bakersfield</h1>
         <h2 className='hero-subtitle'>Professional Casino Party Equipment Rental</h2>

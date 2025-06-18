@@ -5,8 +5,7 @@ import Cards from '../Cards';
 import HeroSection from '../HeroSection';
 import PricingInfo from '../PricingInfo';
 import SEO from '../SEO';
-import ServiceAreas from '../ServiceAreas';
-import LocalReviews from '../LocalReviews';
+import { ServiceAreas, LocalReviews } from '../ServiceAreas'; // Fixed import
 
 function Home() {
   // Local Business Schema for Bakersfield

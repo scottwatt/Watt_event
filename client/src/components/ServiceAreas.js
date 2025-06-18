@@ -79,10 +79,7 @@ const ServiceAreas = () => {
   );
 };
 
-// client/src/components/LocalReviews.js
-import React from 'react';
-import './LocalReviews.css';
-
+// LocalReviews component - using the same React import from above
 const LocalReviews = () => {
   const reviews = [
     {
