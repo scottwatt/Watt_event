@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductList.css';
+import cardsImage from './cards.jpg';
+import rouletteTableImage from './roulettetable.jpg';
+import texasholdImage from './texashold.jpg';
 
 const ProductPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -11,28 +14,28 @@ const ProductPage = () => {
       id: 1, 
       name: 'Poker', 
       price: '$10', 
-      image: '/images/texashold.jpg',
+      image: texasholdImage,
       route: '/poker'
     },
     { 
       id: 2, 
       name: 'Blackjack', 
       price: '$20', 
-      image: '/images/cards.jpg',
+      image: cardsImage,
       route: '/blackjack'
     },
     { 
       id: 3, 
       name: 'Roulette', 
       price: '$30', 
-      image: '/images/roulettetable.jpg',
+      image: rouletteTableImage,
       route: '/roulette'
     },
     { 
       id: 4, 
       name: 'Craps', 
       price: '$30', 
-      image: '/images/craps.jpg',
+      image: '/images/craps1.jpg',
       route: '/craps'
     },
   ];

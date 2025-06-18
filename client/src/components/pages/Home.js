@@ -3,7 +3,6 @@ import React from 'react';
 import '../../App.css';
 import Cards from '../Cards';
 import HeroSection from '../HeroSection';
-import PricingInfo from '../PricingInfo';
 import SEO from '../SEO';
 import { ServiceAreas, LocalReviews } from '../ServiceAreas'; // Fixed import
 
@@ -129,7 +128,6 @@ function Home() {
       <Cards />
       <ServiceAreas />
       <LocalReviews />
-      <PricingInfo />
     </>
   );
 }

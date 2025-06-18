@@ -1,4 +1,4 @@
-// client/src/components/HeroSection.js - Image Background Version
+// client/src/components/HeroSection.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';

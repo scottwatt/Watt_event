@@ -8,19 +8,17 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/public/images/casino-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+/* Remove video styles since we're using background image */
 .hero-container video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: 0;
-  object-fit: cover;
+  display: none;
 }
 
 .hero-content {
@@ -191,7 +189,7 @@
   }
 }
 
-/* Add a dark overlay to the video */
+/* Add a dark overlay to enhance text readability */
 .hero-container::after {
   content: '';
   position: absolute;
@@ -205,6 +203,10 @@
 
 /* Responsive Design */
 @media screen and (max-width: 960px) {
+  .hero-container {
+    background-attachment: scroll; /* Fixed attachment can cause issues on mobile */
+  }
+
   .hero-container h1 {
     font-size: 3rem;
   }

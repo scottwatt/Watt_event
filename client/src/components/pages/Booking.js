@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-import api from '../../services/api';
+// client/src/components/pages/Booking.js
+import React, { useState } from 'react';
 import './Booking.css';
 
 const Booking = () => {
-  const [bookingDetails, setBookingDetails] = useState({
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
     date: '',
     time: '',
-    phoneNumber: '',
+    eventType: '',
     numberOfTables: 1,
     selectedGames: [],
-    eventType: '',
     guestCount: '',
     specialRequests: ''
   });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const [dateAvailable, setDateAvailable] = useState(true);
-  const { user } = useAuth();
+  const [formStatus, setFormStatus] = useState('');
 
   const gameOptions = [
     { id: 'poker', name: 'Poker' },
@@ -43,31 +40,10 @@ const Booking = () => {
     '10:00 PM', '11:00 PM'
   ];
 
-  // Check date availability when date changes
-  useEffect(() => {
-    const checkAvailability = async () => {
-      if (bookingDetails.date) {
-        try {
-          const response = await api.get(`/bookings/availability/${bookingDetails.date}`);
-          setDateAvailable(response.data.available);
-          if (!response.data.available) {
-            setError('This date is fully booked. Please select another date.');
-          } else {
-            setError('');
-          }
-        } catch (err) {
-          console.error('Error checking availability:', err);
-        }
-      }
-    };
-
-    checkAvailability();
-  }, [bookingDetails.date]);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     
-    if (name === 'phoneNumber') {
+    if (name === 'phone') {
       // Remove all non-digits
       const digits = value.replace(/\D/g, '');
       
@@ -77,24 +53,21 @@ const Booking = () => {
       if (digits.length > 3) formattedNumber += '-' + digits.slice(3, 6);
       if (digits.length > 6) formattedNumber += '-' + digits.slice(6, 10);
   
-      // Update state with formatted number
-      setBookingDetails(prev => ({
+      setFormData(prev => ({
         ...prev,
         [name]: formattedNumber
       }));
     } else {
-      // Handle all other inputs normally
-      setBookingDetails(prev => ({
+      setFormData(prev => ({
         ...prev,
         [name]: value
       }));
     }
-    setError(''); // Clear any existing errors
   };
 
   const handleGameSelection = (e) => {
     const { checked, value } = e.target;
-    setBookingDetails(prev => ({
+    setFormData(prev => ({
       ...prev,
       selectedGames: checked
         ? [...prev.selectedGames, value]
@@ -102,83 +75,69 @@ const Booking = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    
-    if (!user) {
-      setError('Please log in or sign up to complete your booking');
+
+    // Basic validation
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+      setFormStatus('Please fill in all required fields.');
       return;
     }
 
-    if (!dateAvailable) {
-      setError('This date is fully booked. Please select another date.');
+    if (formData.selectedGames.length === 0) {
+      setFormStatus('Please select at least one game.');
       return;
     }
 
-    setError('');
-    setSuccess('');
-    setLoading(true);
+    // Create form data for Formspree or similar service
+    const submitData = new FormData();
+    submitData.append("firstName", formData.firstName);
+    submitData.append("lastName", formData.lastName);
+    submitData.append("email", formData.email);
+    submitData.append("phone", formData.phone);
+    submitData.append("date", formData.date);
+    submitData.append("time", formData.time);
+    submitData.append("eventType", formData.eventType);
+    submitData.append("numberOfTables", formData.numberOfTables);
+    submitData.append("selectedGames", formData.selectedGames.join(', '));
+    submitData.append("guestCount", formData.guestCount);
+    submitData.append("specialRequests", formData.specialRequests);
 
-    try {
-      // Validation checks
-      const requiredFields = [
-        'date', 
-        'time', 
-        'eventType', 
-        'phoneNumber', 
-        'numberOfTables', 
-        'guestCount'
-      ];
-      
-      const missingFields = requiredFields.filter(field => !bookingDetails[field]);
-      if (missingFields.length > 0) {
-        throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
-      }
-
-      if (bookingDetails.selectedGames.length === 0) {
-        throw new Error('Please select at least one game');
-      }
-
-      // Phone number validation
-      const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
-      if (!phoneRegex.test(bookingDetails.phoneNumber)) {
-        throw new Error('Please enter a valid phone number in the format 123-456-7890');
-      }
-
-      const response = await api.post('/bookings', {
-        ...bookingDetails,
-        userId: user.id
-      });
-
-      if (response.data.success) {
-        setSuccess('Booking request submitted! We will contact you shortly to confirm your event.');
-        // Clear form
-        setBookingDetails({
-          date: '',
-          time: '',
-          phoneNumber: '',
-          numberOfTables: 1,
-          selectedGames: [],
-          eventType: '',
-          guestCount: '',
-          specialRequests: ''
+    // Submit to Formspree (replace with your Formspree endpoint)
+    fetch("https://formspree.io/f/xoqopnpz", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json"
+        },
+        body: submitData,
+    })
+    .then((response) => {
+        return response.json().then(data => {
+            if (response.ok) {
+                setFormStatus('Quote request submitted successfully! We will contact you within 24 hours.');
+                // Reset form
+                setFormData({
+                  firstName: '',
+                  lastName: '',
+                  email: '',
+                  phone: '',
+                  date: '',
+                  time: '',
+                  eventType: '',
+                  numberOfTables: 1,
+                  selectedGames: [],
+                  guestCount: '',
+                  specialRequests: ''
+                });
+            } else {
+                console.log(data);
+                setFormStatus('Error submitting request. Please try again or call us directly.');
+            }
         });
-        setTimeout(() => {
-          window.location.href = '/dashboard';
-        }, 3000);
-      } else {
-        throw new Error(response.data.message || 'Failed to create booking');
-      }
-    } catch (err) {
-      console.error('Booking error:', err);
-      setError(
-        err.response?.data?.message || 
-        err.message || 
-        'Failed to create booking. Please try again.'
-      );
-    } finally {
-      setLoading(false);
-    }
+    })
+    .catch(() => {
+        setFormStatus('Error submitting request. Please try again or call us directly.');
+    });
   };
 
   const today = new Date().toISOString().split('T')[0];
@@ -188,48 +147,89 @@ const Booking = () => {
 
   return (
     <div className="booking-container">
-      <h1>Book Your Casino Event</h1>
+      <h1>Request Your Free Quote</h1>
+      <p style={{textAlign: 'center', marginBottom: '2rem', color: '#666'}}>
+        Fill out the form below for a personalized quote, or call us directly at{' '}
+        <a href="tel:661-302-0115" style={{color: '#4a90e2', fontWeight: 'bold'}}>
+          (661) 302-0115
+        </a>
+      </p>
       
-      {error && <div className="error-message">{error}</div>}
-      {success && <div className="success-message">{success}</div>}
+      {formStatus && (
+        <div className={formStatus.includes('successfully') ? "success-message" : "error-message"}>
+          {formStatus}
+        </div>
+      )}
       
-      <form onSubmit={handleSubmit} className="booking-form">
+      <form onSubmit={onSubmit} className="booking-form">
+        <div className="form-row" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+          <div className="form-group">
+            <label>First Name: *</label>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Last Name: *</label>
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+
         <div className="form-group">
-          <label>Event Date:</label>
+          <label>Email Address: *</label>
           <input
-            type="date"
-            name="date"
-            value={bookingDetails.date}
+            type="email"
+            name="email"
+            value={formData.email}
             onChange={handleInputChange}
-            min={today}
-            max={maxDateString}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Phone Number:</label>
+          <label>Phone Number: *</label>
           <input
             type="tel"
-            name="phoneNumber"
-            value={bookingDetails.phoneNumber}
+            name="phone"
+            value={formData.phone}
             onChange={handleInputChange}
             maxLength="12"
             placeholder="123-456-7890"
             required
           />
-          <small>Format: 123-456-7890</small>
         </div>
 
         <div className="form-group">
-          <label>Event Time:</label>
+          <label>Preferred Event Date:</label>
+          <input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleInputChange}
+            min={today}
+            max={maxDateString}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Preferred Time:</label>
           <select
             name="time"
-            value={bookingDetails.time}
+            value={formData.time}
             onChange={handleInputChange}
-            required
           >
-            <option value="">Select a time</option>
+            <option value="">Select a time (optional)</option>
             {timeSlots.map(time => (
               <option key={time} value={time}>{time}</option>
             ))}
@@ -240,9 +240,8 @@ const Booking = () => {
           <label>Event Type:</label>
           <select
             name="eventType"
-            value={bookingDetails.eventType}
+            value={formData.eventType}
             onChange={handleInputChange}
-            required
           >
             <option value="">Select event type</option>
             {eventTypes.map(type => (
@@ -251,33 +250,33 @@ const Booking = () => {
           </select>
         </div>
 
-        <div className="form-group">
-          <label>Number of Tables:</label>
-          <input
-            type="number"
-            name="numberOfTables"
-            value={bookingDetails.numberOfTables}
-            onChange={handleInputChange}
-            min="1"
-            max="100"
-            required
-          />
+        <div className="form-row" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+          <div className="form-group">
+            <label>Number of Tables:</label>
+            <input
+              type="number"
+              name="numberOfTables"
+              value={formData.numberOfTables}
+              onChange={handleInputChange}
+              min="1"
+              max="100"
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Expected Guest Count:</label>
+            <input
+              type="number"
+              name="guestCount"
+              value={formData.guestCount}
+              onChange={handleInputChange}
+              min="1"
+            />
+          </div>
         </div>
 
         <div className="form-group">
-          <label>Expected Guest Count:</label>
-          <input
-            type="number"
-            name="guestCount"
-            value={bookingDetails.guestCount}
-            onChange={handleInputChange}
-            min="1"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Select Games:</label>
+          <label>Select Games: *</label>
           <div className="games-selection">
             {gameOptions.map(game => (
               <div key={game.id} className="game-option">
@@ -285,7 +284,7 @@ const Booking = () => {
                   type="checkbox"
                   id={game.id}
                   value={game.name}
-                  checked={bookingDetails.selectedGames.includes(game.name)}
+                  checked={formData.selectedGames.includes(game.name)}
                   onChange={handleGameSelection}
                 />
                 <label htmlFor={game.id}>{game.name}</label>
@@ -295,37 +294,44 @@ const Booking = () => {
         </div>
 
         <div className="form-group">
-          <label>Special Requests:</label>
+          <label>Special Requests or Questions:</label>
           <textarea
             name="specialRequests"
-            value={bookingDetails.specialRequests}
+            value={formData.specialRequests}
             onChange={handleInputChange}
             rows="4"
-            placeholder="Any special requirements or requests for your event?"
+            placeholder="Tell us about your event, any special requirements, or questions you have..."
           />
         </div>
 
-        {user ? (
-          <button 
-            type="submit" 
-            className={`submit-button ${loading ? 'loading' : ''}`}
-            disabled={loading}
+        <button type="submit" className="submit-button">
+          Request Free Quote
+        </button>
+
+        <div style={{textAlign: 'center', marginTop: '2rem', padding: '1rem', backgroundColor: '#f9f9f9', borderRadius: '8px'}}>
+          <h3 style={{margin: '0 0 1rem 0', color: '#333'}}>Prefer to Talk?</h3>
+          <p style={{margin: '0 0 1rem 0', color: '#666'}}>
+            Call us directly for immediate assistance and personalized service:
+          </p>
+          <a 
+            href="tel:661-302-0115" 
+            style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              backgroundColor: '#4a90e2',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontWeight: 'bold',
+              fontSize: '1.1rem'
+            }}
           >
-            {loading ? 'Creating Booking...' : 'Book Event'}
-          </button>
-        ) : (
-          <div className="auth-prompt">
-            <p>Please log in or sign up to complete your booking</p>
-            <div className="auth-buttons">
-              <Link to="/login" className="auth-button login">
-                Login
-              </Link>
-              <Link to="/register" className="auth-button register">
-                Sign Up
-              </Link>
-            </div>
-          </div>
-        )}
+            📞 (661) 302-0115
+          </a>
+          <p style={{margin: '1rem 0 0 0', fontSize: '0.9rem', color: '#888'}}>
+            Available 7 days a week for your convenience
+          </p>
+        </div>
       </form>
     </div>
   );
