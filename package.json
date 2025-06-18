@@ -1,16 +1,23 @@
 {
-    "name": "casinosite",
-    "version": "1.0.0",
-    "private": true,
-    "workspaces": [
-      "client",
-      "server"
-    ],
-    "scripts": {
-      "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm start\"",
-      "install-all": "npm install && cd client && npm install && cd ../server && npm install"
-    },
-    "dependencies": {
-      "concurrently": "^8.2.0"
-    }
-  }
+  "name": "watt-events-website",
+  "version": "1.0.0",
+  "description": "Casino rentals website for Bakersfield",
+  "main": "server.js",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "cd client && npm install && npm run build",
+    "dev": "cd client && npm start",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  },
+  "keywords": ["casino", "rentals", "bakersfield", "events"],
+  "author": "Watt Events",
+  "license": "ISC"
+}
