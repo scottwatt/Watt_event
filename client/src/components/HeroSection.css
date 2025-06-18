@@ -1,4 +1,4 @@
-/* components/HeroSection.css */
+/* client/src/components/HeroSection.css - Updated for SEO */
 .hero-container {
   height: 100vh;
   width: 100%;
@@ -28,12 +28,14 @@
   z-index: 2;
   text-align: center;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  max-width: 900px;
+  backdrop-filter: blur(10px);
 }
 
 .hero-container h1 {
-  font-size: 4.5rem;
+  font-size: 4rem;
   color: #FFD700;
   text-shadow: 
     0 0 7px #fff,
@@ -45,43 +47,123 @@
     0 0 102px gold,
     0 0 151px gold;
   margin-bottom: 1rem;
-  animation: neonPulse 1.5s infinite alternate;
+  animation: neonPulse 2s infinite alternate;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  color: #FFFDD0;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-container p {
   color: #FFFDD0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: 'Montserrat', sans-serif;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  max-width: 800px;
-  padding: 0 20px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #FFFDD0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  display: block;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .booking-button {
   display: inline-block;
   padding: 15px 30px;
-  background: linear-gradient(45deg, #FFD700, #FFA500);
-  color: #000;
-  font-weight: bold;
   border: none;
   border-radius: 50px;
   font-size: 1.2rem;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.booking-button.primary {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #000;
+}
+
+.booking-button.secondary {
+  background: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
 }
 
 .booking-button:hover {
   transform: translateY(-2px) scale(1.05);
+}
+
+.booking-button.primary:hover {
   box-shadow: 
     0 0 5px #FFD700,
     0 0 25px #FFD700,
     0 0 50px #FFD700,
     0 0 100px #FFD700;
   background: linear-gradient(45deg, #FFA500, #FFD700);
+}
+
+.booking-button.secondary:hover {
+  background: #FFD700;
+  color: #000;
+  box-shadow: 
+    0 0 15px #FFD700,
+    0 0 30px #FFD700;
+}
+
+.hero-trust-signals {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.hero-trust-signals p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #FFFDD0;
+  opacity: 0.9;
+}
+
+.hero-trust-signals p:first-child {
+  font-size: 1.1rem;
+  color: #FFD700;
 }
 
 @keyframes neonPulse {
@@ -117,7 +199,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
@@ -127,14 +209,39 @@
     font-size: 3rem;
   }
 
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+
   .hero-container p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .hero-features {
+    gap: 1rem;
+  }
+
+  .feature-item {
+    font-size: 0.9rem;
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .hero-content {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
   .hero-container h1 {
     font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
   }
 
   .hero-container p {
@@ -142,7 +249,23 @@
   }
 
   .booking-button {
-    padding: 10px 24px;
+    padding: 12px 24px;
     font-size: 1rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-features {
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .feature-item {
+    font-size: 0.8rem;
   }
 }
