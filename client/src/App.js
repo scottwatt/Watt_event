@@ -1,4 +1,4 @@
-// App.js - Optimized with Code Splitting
+// App.js - Updated with Casino Rental Bakersfield Landing Page
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -13,6 +13,9 @@ const Products = lazy(() => import('./components/pages/Products'));
 const Contact = lazy(() => import('./components/pages/Contact'));
 const Booking = lazy(() => import('./components/pages/Booking'));
 const TermsOfService = lazy(() => import('./components/pages/TermsOfService'));
+
+// SEO Landing Pages - Lazy loaded
+const CasinoRentalBakersfield = lazy(() => import('./components/pages/CasinoRentalBakersfield'));
 
 // Game Rules Components - Lazy loaded
 const BlackjackRules = lazy(() => import('./components/BlackjackRules'));
@@ -96,6 +99,7 @@ function App() {
       <LazyLoadErrorBoundary>
         <Suspense fallback={<LoadingSpinner />}>
           <Switch>
+            {/* Main Pages */}
             <Route path='/' exact component={Home} />
             <Route path='/about-us' component={About} />
             <Route path='/services' component={Services} />
@@ -103,6 +107,9 @@ function App() {
             <Route path='/contact' component={Contact} />
             <Route path='/booking' component={Booking} />
             <Route path='/terms-of-service' component={TermsOfService} />
+            
+            {/* SEO Landing Pages */}
+            <Route path='/casino-rental-bakersfield' component={CasinoRentalBakersfield} />
             
             {/* Game Rules Routes */}
             <Route path='/blackjack' component={BlackjackRules} />
