@@ -1,8 +1,9 @@
-// src/components/Navbar.js
+// components/Navbar.js - Updated with OptimizedImage
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import OptimizedImage from './OptimizedImage';
 import './Navbar.css';
 
 function Navbar() {
@@ -35,10 +36,14 @@ function Navbar() {
     <nav className='navbar' ref={navRef}>
       <div className='navbar-container'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img 
-            src="images/Watt-Events.png" 
-            alt="Watt Events Logo"
+          <OptimizedImage
+            src="images/Watt-Events.png"
+            alt="Watt Events Casino Rentals Bakersfield Logo"
             className="nav-logo"
+            width={200}
+            height={240}
+            priority={true} // Logo should load immediately
+            sizes="200px"
           />
         </Link>
         

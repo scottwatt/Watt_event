@@ -1,5 +1,7 @@
+// components/ProductList.js - Updated with OptimizedImage
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import OptimizedImage from './OptimizedImage';
 import './ProductList.css';
 import cardsImage from './cards.jpg';
 import rouletteTableImage from './roulettetable.jpg';
@@ -50,12 +52,6 @@ const ProductPage = () => {
     setSelectedProduct(null);
   };
 
-  const handleImageError = (e, productName) => {
-    console.log(`Failed to load image for ${productName}`);
-    e.target.onerror = null; // Prevents infinite loop if fallback also fails
-    e.target.src = '/images/placeholder.jpg'; // Fallback image
-  };
-
   return (
     <div className="product-container">
       <h1>Our Products</h1>
@@ -63,10 +59,13 @@ const ProductPage = () => {
         {products.map((product) => (
           <Link to={product.route} key={product.id}>
             <div className="product">
-              <img 
-                src={product.image} 
-                alt={product.name}
-                onError={(e) => handleImageError(e, product.name)}
+              <OptimizedImage
+                src={product.image}
+                alt={`${product.name} table rental in Bakersfield`}
+                width={300}
+                height={200}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <h2>{product.name}</h2>
             </div>

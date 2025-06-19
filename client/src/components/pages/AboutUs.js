@@ -1,13 +1,23 @@
+// components/pages/AboutUs.js - Updated with OptimizedImage
 import React from 'react';
 import './AboutUs.css';
 import { Link } from 'react-router-dom';
-import Cards from '../cards.jpg'; // Ensure you have an image named 'cards.jpg' in the correct directory
+import OptimizedImage from '../OptimizedImage';
+import Cards from '../cards.jpg';
 
 const AboutPage = () => {
   return (
     <div className="about-container">
       <section className="about-hero">
-        <img src={Cards} alt="About Watt Events" className="about-image" />
+        <OptimizedImage
+          src={Cards}
+          alt="Professional casino cards for Watt Events rentals"
+          className="about-image"
+          width={400}
+          height={300}
+          priority={true} // This image is above the fold
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
         <div>
           <h1>About Watt Events</h1>
           <p>Bringing the casino experience to your events, with a touch of Vegas-style entertainment.</p>

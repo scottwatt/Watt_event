@@ -1,13 +1,23 @@
+// components/Footer.js - Updated with OptimizedImage
 import React from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
+import OptimizedImage from './OptimizedImage';
 
 function Footer() {
   return (
     <div className='footer-container'>
       <section className='footer-logo'>
         <Link to='/' className='social-logo'>
-          <img src='../images/Wattenbarger-Events.png' id='footerLogo' className='footerlogo' alt="Watt Events Logo" />
+          <OptimizedImage
+            src='../images/Wattenbarger-Events.png'
+            alt="Watt Events Casino Rentals Bakersfield Footer Logo"
+            className='footerlogo'
+            width={200}
+            height={120}
+            loading="lazy" // Footer logo can be lazy loaded
+            sizes="200px"
+          />
         </Link>
       </section>
 
