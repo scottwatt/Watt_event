@@ -1,5 +1,4 @@
-// components/OptimizedImage.js
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 
 const OptimizedImage = ({ 
   src, 
@@ -11,96 +10,31 @@ const OptimizedImage = ({
   sizes = '100vw',
   priority = false 
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(priority);
-  const imgRef = useRef();
-
-  // Intersection Observer for lazy loading
-  useEffect(() => {
-    if (priority) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [priority]);
-
-  // Generate WebP and fallback sources
-  const getOptimizedSrc = (originalSrc) => {
-    if (!originalSrc) return originalSrc;
-    
-    // Check if it's already optimized or external
-    if (originalSrc.includes('.webp') || originalSrc.startsWith('http')) {
-      return originalSrc;
-    }
-
-    // Generate WebP version path
-    const webpSrc = originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-    return { webp: webpSrc, fallback: originalSrc };
-  };
-
-  const optimizedSrc = getOptimizedSrc(src);
+  // Handle paths - if it starts with / or http, use as-is
+  // Otherwise, assume it's relative to public folder
+  const imageSrc = src.startsWith('/') || src.startsWith('http') 
+    ? src 
+    : `/${src}`;
 
   return (
-    <div 
-      ref={imgRef}
-      className={`image-container ${className}`}
-      style={{ 
-        width: width || 'auto', 
-        height: height || 'auto',
-        backgroundColor: isLoaded ? 'transparent' : '#f0f0f0'
+    <img
+      src={imageSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      loading={priority ? 'eager' : 'lazy'}
+      sizes={sizes}
+      style={{
+        maxWidth: '100%',
+        height: 'auto',
+        display: 'block'
       }}
-    >
-      {isInView && (
-        <picture>
-          {typeof optimizedSrc === 'object' && (
-            <source srcSet={optimizedSrc.webp} type="image/webp" />
-          )}
-          <img
-            src={typeof optimizedSrc === 'object' ? optimizedSrc.fallback : optimizedSrc}
-            alt={alt}
-            width={width}
-            height={height}
-            loading={priority ? 'eager' : 'lazy'}
-            sizes={sizes}
-            onLoad={() => setIsLoaded(true)}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              transition: 'opacity 0.3s ease',
-              opacity: isLoaded ? 1 : 0
-            }}
-          />
-        </picture>
-      )}
-      {!isLoaded && !isInView && (
-        <div 
-          style={{
-            width: '100%',
-            height: '100%',
-            backgroundColor: '#f0f0f0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#999'
-          }}
-        >
-          Loading...
-        </div>
-      )}
-    </div>
+      onError={(e) => {
+        console.error('Image failed to load:', src);
+        e.target.style.background = '#ddd';
+      }}
+    />
   );
 };
 
