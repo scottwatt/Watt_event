@@ -179,7 +179,7 @@ const Services = () => {
         <article className="service-card">
           <div className="service-image-wrapper">
             <OptimizedImage
-              src="images/webj.jpg"
+              src="images/WeBj.jpg"
               alt="Private blackjack party rental in Bakersfield"
               width={600}
               height={600}
