@@ -1,4 +1,4 @@
-/* Contact.css - Professional Redesign */
+/* Contact.css - Professional Redesign with Fixed Quick Contact */
 
 .contact-page {
   background: #f8f9fa;
@@ -57,6 +57,65 @@
   color: #FFFDD0;
   opacity: 0.9;
   line-height: 1.7;
+}
+
+/* ============================================
+   QUICK CONTACT BAR - FIXED VISIBILITY
+   ============================================ */
+.quick-contact {
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.quick-contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.quick-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.quick-contact-item:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: #FFD700;
+  transform: translateY(-2px);
+}
+
+.quick-contact-item .icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.quick-contact-item .text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #FFD700;
+}
+
+.quick-contact-item:hover .text {
+  color: #fff;
 }
 
 /* Contact Section */
@@ -331,53 +390,6 @@
   border: 1px solid #fecaca;
 }
 
-/* Quick Contact Bar */
-.quick-contact {
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-}
-
-.quick-contact-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.quick-contact-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: #FFFDD0;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.quick-contact-item:hover {
-  color: #FFD700;
-  transform: translateY(-2px);
-}
-
-.quick-contact-item .icon {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 215, 0, 0.15);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-}
-
-.quick-contact-item .text {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
 /* Responsive */
 @media screen and (max-width: 968px) {
   .contact-container {
@@ -407,7 +419,7 @@
   
   .quick-contact-container {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .quick-contact-item {

@@ -1,9 +1,8 @@
-// components/Navbar.js - With Active Page Indicator
+// components/Navbar.js - Bigger Logo, No Chip
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import OptimizedImage from './OptimizedImage';
 import './Navbar.css';
 
 function Navbar() {
@@ -45,20 +44,10 @@ function Navbar() {
     <nav className='navbar' ref={navRef}>
       <div className='navbar-container'>
         <NavLink to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <OptimizedImage
-            src="images/Watt-Events.png"
+          <img
+            src="/images/Watt-Events.png"
             alt="Watt Events - Casino Rentals Bakersfield"
             className="nav-logo"
-            width={280}
-            height={80}
-            priority={true}
-            sizes="(max-width: 480px) 160px, (max-width: 960px) 200px, 280px"
-            style={{
-              height: 'auto',
-              width: 'auto',
-              maxHeight: '80px',
-              maxWidth: '280px'
-            }}
           />
         </NavLink>
         

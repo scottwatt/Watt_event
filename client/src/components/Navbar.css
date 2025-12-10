@@ -1,8 +1,8 @@
-/* Navbar.css - With Poker Chip Active Indicator */
+/* Navbar.css - Clean Underline Only, Much Bigger Logo */
 
 .navbar {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  height: 100px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,14 +30,16 @@
   justify-content: flex-start;
   cursor: pointer;
   text-decoration: none;
-  padding: 10px 0;
+  padding: 5px 0;
   height: 100%;
 }
 
+/* MUCH BIGGER LOGO */
 .nav-logo {
-  height: 80px !important;
+  height: 250px !important;
   width: auto !important;
-  max-width: 280px !important;
+  max-width: 400px !important;
+  max-height: 250px !important;
   object-fit: contain !important;
   filter: brightness(0) invert(1);
   display: block !important;
@@ -72,7 +74,7 @@
 }
 
 .nav-item {
-  height: 100px;
+  height: 110px;
   display: flex;
   align-items: center;
   position: relative;
@@ -101,7 +103,7 @@
 .nav-links::after {
   content: '';
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   width: calc(100% - 1.5rem);
@@ -121,7 +123,7 @@
 }
 
 /* ============================================
-   ACTIVE STATE - Gold color & underline
+   ACTIVE STATE - Gold color & underline ONLY
    ============================================ */
 
 .nav-links.active {
@@ -133,92 +135,7 @@
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
-/* ============================================
-   POKER CHIP INDICATOR
-   Premium CSS Poker Chip above active link
-   ============================================ */
-
-.nav-links.active::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  
-  /* Multi-layer gradient for realistic chip look */
-  background: 
-    /* Center shine highlight */
-    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
-    /* Main gold gradient */
-    radial-gradient(circle at 50% 50%, #FFE566 0%, #FFD700 30%, #D4A000 60%, #B8860B 100%);
-  
-  /* Complex box-shadow for depth and rings */
-  box-shadow: 
-    /* Inner dark ring */
-    inset 0 0 0 4px #1a1a2e,
-    /* Inner gold ring */
-    inset 0 0 0 5px #FFD700,
-    /* Edge notch shadows (creates stripe illusion) */
-    inset 2px 0 0 5px rgba(255, 253, 208, 0.8),
-    inset -2px 0 0 5px rgba(255, 253, 208, 0.8),
-    inset 0 2px 0 5px rgba(255, 253, 208, 0.8),
-    inset 0 -2px 0 5px rgba(255, 253, 208, 0.8),
-    /* Diagonal notches */
-    inset 1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
-    inset -1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
-    inset 1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
-    inset -1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
-    /* Outer dark border */
-    0 0 0 2px #0d0d1a,
-    /* 3D depth shadow */
-    0 3px 6px rgba(0, 0, 0, 0.5),
-    /* Gold glow */
-    0 0 12px rgba(255, 215, 0, 0.6);
-  
-  animation: chipHover 3s ease-in-out infinite;
-  z-index: 10;
-}
-
-/* Chip hover/float animation */
-@keyframes chipHover {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0) rotate(0deg);
-    box-shadow: 
-      inset 0 0 0 4px #1a1a2e,
-      inset 0 0 0 5px #FFD700,
-      inset 2px 0 0 5px rgba(255, 253, 208, 0.8),
-      inset -2px 0 0 5px rgba(255, 253, 208, 0.8),
-      inset 0 2px 0 5px rgba(255, 253, 208, 0.8),
-      inset 0 -2px 0 5px rgba(255, 253, 208, 0.8),
-      inset 1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
-      inset -1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
-      inset 1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
-      inset -1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
-      0 0 0 2px #0d0d1a,
-      0 3px 6px rgba(0, 0, 0, 0.5),
-      0 0 12px rgba(255, 215, 0, 0.6);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-3px) rotate(10deg);
-    box-shadow: 
-      inset 0 0 0 4px #1a1a2e,
-      inset 0 0 0 5px #FFD700,
-      inset 2px 0 0 5px rgba(255, 253, 208, 0.8),
-      inset -2px 0 0 5px rgba(255, 253, 208, 0.8),
-      inset 0 2px 0 5px rgba(255, 253, 208, 0.8),
-      inset 0 -2px 0 5px rgba(255, 253, 208, 0.8),
-      inset 1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
-      inset -1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
-      inset 1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
-      inset -1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
-      0 0 0 2px #0d0d1a,
-      0 6px 12px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(255, 215, 0, 0.8);
-  }
-}
+/* NO POKER CHIP - removed ::before completely */
 
 /* ============================================
    GET QUOTE CTA BUTTON
@@ -239,8 +156,7 @@
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
-.nav-cta-btn::after,
-.nav-cta-btn::before {
+.nav-cta-btn::after {
   display: none !important;
 }
 
@@ -270,13 +186,7 @@
   }
 
   .nav-links::after {
-    bottom: 18px;
-  }
-
-  .nav-links.active::before {
-    top: 8px;
-    width: 20px;
-    height: 20px;
+    bottom: 22px;
   }
 }
 
@@ -286,7 +196,7 @@
 
 @media screen and (max-width: 960px) {
   .navbar {
-    height: 80px;
+    height: 85px;
   }
   
   .navbar-container {
@@ -298,17 +208,22 @@
   }
 
   .nav-logo {
-    height: 60px !important;
-    max-width: 200px !important;
+    height: 250px !important;
+    max-width: 260px !important;
+    max-height: 250px !important;
+  }
+
+  .nav-item {
+    height: auto;
   }
 
   .nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 85px);
     position: absolute;
-    top: 80px;
+    top: 85px;
     left: -100%;
     opacity: 0;
     transition: all 0.4s ease;
@@ -332,7 +247,6 @@
   }
 
   .nav-item {
-    height: auto;
     width: 100%;
     border: none;
   }
@@ -349,55 +263,29 @@
     position: relative;
   }
 
-  /* Mobile - Remove desktop effects */
+  /* Mobile - underline on left instead of bottom */
   .nav-links::after {
-    display: none;
-  }
-
-  /* Mobile - Poker chip on left side of active link */
-  .nav-links.active::before {
+    bottom: auto;
+    left: 0;
     top: 50%;
-    left: 1.5rem;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    animation: chipPulse 2s ease-in-out infinite;
+    transform: translateY(-50%) scaleY(0);
+    width: 4px;
+    height: 60%;
+    transform-origin: center;
   }
 
-  @keyframes chipPulse {
-    0%, 100% {
-      transform: translateY(-50%) scale(1);
-      box-shadow: 
-        inset 0 0 0 3px #1a1a2e,
-        inset 0 0 0 4px #FFD700,
-        inset 1.5px 0 0 4px rgba(255, 253, 208, 0.8),
-        inset -1.5px 0 0 4px rgba(255, 253, 208, 0.8),
-        inset 0 1.5px 0 4px rgba(255, 253, 208, 0.8),
-        inset 0 -1.5px 0 4px rgba(255, 253, 208, 0.8),
-        0 0 0 1.5px #0d0d1a,
-        0 2px 4px rgba(0, 0, 0, 0.5),
-        0 0 10px rgba(255, 215, 0, 0.5);
-    }
-    50% {
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 
-        inset 0 0 0 3px #1a1a2e,
-        inset 0 0 0 4px #FFD700,
-        inset 1.5px 0 0 4px rgba(255, 253, 208, 0.8),
-        inset -1.5px 0 0 4px rgba(255, 253, 208, 0.8),
-        inset 0 1.5px 0 4px rgba(255, 253, 208, 0.8),
-        inset 0 -1.5px 0 4px rgba(255, 253, 208, 0.8),
-        0 0 0 1.5px #0d0d1a,
-        0 2px 4px rgba(0, 0, 0, 0.5),
-        0 0 18px rgba(255, 215, 0, 0.8);
-    }
+  .nav-links:hover::after {
+    transform: translateY(-50%) scaleY(1);
+  }
+
+  .nav-links.active::after {
+    transform: translateY(-50%) scaleY(1);
   }
 
   /* Mobile Active State */
   .nav-links.active {
     background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
     color: #FFD700;
-    padding-left: 3.5rem;
   }
 
   .nav-links:hover {
@@ -421,13 +309,8 @@
     padding: 1rem 2rem !important;
   }
 
-  .nav-cta-btn::before {
-    display: none !important;
-  }
-
   .nav-cta-btn.active {
     background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
-    padding-left: 2rem !important;
   }
 }
 
@@ -437,7 +320,7 @@
 
 @media screen and (max-width: 480px) {
   .navbar {
-    height: 70px;
+    height: 75px;
   }
   
   .navbar-container {
@@ -445,8 +328,9 @@
   }
 
   .nav-logo {
-    height: 50px !important;
-    max-width: 160px !important;
+    height: 250px !important;
+    max-width: 200px !important;
+    max-height: 250px !important;
   }
   
   .menu-icon {
@@ -454,23 +338,13 @@
   }
   
   .nav-menu {
-    top: 70px;
-    height: calc(100vh - 70px);
+    top: 75px;
+    height: calc(100vh - 75px);
   }
   
   .nav-links {
     padding: 1rem;
     font-size: 1rem;
-  }
-
-  .nav-links.active {
-    padding-left: 3rem;
-  }
-
-  .nav-links.active::before {
-    left: 1rem;
-    width: 16px;
-    height: 16px;
   }
 }
 
@@ -496,8 +370,7 @@ button.nav-links.logout-button {
   display: inline-block !important;
 }
 
-.nav-links.logout-button::after,
-.nav-links.logout-button::before {
+.nav-links.logout-button::after {
   display: none !important;
 }
 

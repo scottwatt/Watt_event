@@ -29,7 +29,7 @@
 .footer-logo-img {
   width: 220px !important;
   height: auto !important;
-  max-height: 140px !important;
+  max-height: 150px !important;
   object-fit: contain !important;
   filter: brightness(0) invert(1);
   transition: opacity 0.3s ease;
