@@ -1,4 +1,4 @@
-// App.js - Updated to include FloatingCTA
+// App.js - Updated with ScrollToTop
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
@@ -7,6 +7,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './components/pages/Home';
@@ -27,6 +28,9 @@ import CrapsRules from './components/CrapsRules';
 function App() {
   return (
     <Router>
+      {/* ScrollToTop must be inside Router */}
+      <ScrollToTop />
+      
       <div className="app">
         <Navbar />
         

@@ -1,4 +1,4 @@
-// components/FloatingCTA.js - Mobile Sticky Call Button
+// components/FloatingCTA.js - Updated Email
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './FloatingCTA.css';
@@ -9,7 +9,6 @@ function FloatingCTA() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling 300px
       setIsVisible(window.scrollY > 300);
     };
 
@@ -19,7 +18,7 @@ function FloatingCTA() {
 
   return (
     <>
-      {/* Mobile Bottom Bar - Always visible on mobile */}
+      {/* Mobile Bottom Bar */}
       <div className="mobile-cta-bar">
         <a href="tel:661-302-0115" className="mobile-cta-call">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
