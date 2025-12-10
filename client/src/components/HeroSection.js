@@ -1,4 +1,4 @@
-// components/HeroSection.js - Enhanced Version
+// components/HeroSection.js - Fixed Scroll Indicator
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HeroSection.css';
@@ -78,12 +78,12 @@ function HeroSection() {
             <span className="trust-item">✓ 100+ Events</span>
           </div>
         </div>
-      </div>
-      
-      {/* Scroll Indicator */}
-      <div className="scroll-indicator">
-        <span>Explore Our Games</span>
-        <div className="scroll-arrow">↓</div>
+        
+        {/* Scroll Indicator - Now inside hero-content for proper flow */}
+        <div className="scroll-indicator">
+          <span>Explore Our Games</span>
+          <div className="scroll-arrow">↓</div>
+        </div>
       </div>
     </section>
   );

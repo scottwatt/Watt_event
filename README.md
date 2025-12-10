@@ -49,6 +49,6 @@ This project is private and confidential. All rights reserved.
 
 ## 📞 Contact
 
-- Website: [wattsevents.com](https://wattsevents.com)
-- Email: [wattenbargerevent@gmail.com](mailto:wattenbargerevent@gmail.com)
+- Website: [wattsevents.com](https://wattevent.com)
+- Email: [contact@wattevent.com](mailto:contact@wattevent.com)
 - Phone: (661) 302-0115

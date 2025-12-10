@@ -31,7 +31,7 @@ function Home() {
       "longitude": -119.0187
     },
     "telephone": "661-302-0115",
-    "email": "wattenbargerevent@gmail.com",
+    "email": "contact@wattevent.com",
     "url": "https://wattevent.com",
     "openingHours": ["Mo-Su 00:00-23:59"],
     "priceRange": "$$",

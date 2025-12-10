@@ -1,3 +1,4 @@
+// components/OptimizedImage.js - Fixed to Allow CSS Override
 import React from 'react';
 
 const OptimizedImage = ({ 
@@ -8,7 +9,8 @@ const OptimizedImage = ({
   className = '', 
   loading = 'lazy',
   sizes = '100vw',
-  priority = false 
+  priority = false,
+  style = {}
 }) => {
   // Handle paths - if it starts with / or http, use as-is
   // Otherwise, assume it's relative to public folder
@@ -26,9 +28,8 @@ const OptimizedImage = ({
       loading={priority ? 'eager' : 'lazy'}
       sizes={sizes}
       style={{
-        maxWidth: '100%',
-        height: 'auto',
-        display: 'block'
+        display: 'block',
+        ...style // Allow custom styles to override defaults
       }}
       onError={(e) => {
         console.error('Image failed to load:', src);

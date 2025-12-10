@@ -1,4 +1,4 @@
-// components/Footer.js - Improved Version
+// components/Footer.js - Larger Logo Dimensions
 import React from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
@@ -13,17 +13,17 @@ function Footer() {
       <div className='footer-main'>
         {/* Logo & Description */}
         <div className='footer-brand'>
-          {/* <Link to='/' className='footer-logo-link'>
-            <image
-              src='/Wattenbarger-Events.png'
+          <Link to='/' className='footer-logo-link'>
+            <OptimizedImage
+              src="images/Watt-Events.png"
               alt="Watt Events Casino Rentals Bakersfield Logo"
               className='footer-logo-img'
-              width={180}
-              height={100}
+              width={220}
+              height={140}
               loading="lazy"
-              sizes="180px"
+              sizes="220px"
             />
-          </Link> */}
+          </Link>
           <p className='footer-tagline'>
             Bringing Vegas-style excitement to Bakersfield & Kern County since 2020
           </p>
@@ -33,9 +33,6 @@ function Footer() {
             </a>
             <a href="https://instagram.com/wattevents" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <FaInstagram />
-            </a>
-            <a href="https://twitter.com/wattevents" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <FaTwitter />
             </a>
           </div>
         </div>
@@ -73,7 +70,7 @@ function Footer() {
           </div>
           <div className='contact-item'>
             <FaEnvelope />
-            <a href="mailto:wattenbargerevent@gmail.com">wattenbargerevent@gmail.com</a>
+            <a href="mailto:contact@wattevent.com">contact@wattevent.com</a>
           </div>
           <div className='contact-item'>
             <FaMapMarkerAlt />

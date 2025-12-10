@@ -326,7 +326,7 @@ const CasinoRentalBakersfield = () => {
             </div>
             <div className="contact-info">
               <p><strong>Watt Events - Bakersfield's Premier Casino Rental Company</strong></p>
-              <p>📧 wattenbargerevent@gmail.com | 📞 (661) 302-0115</p>
+              <p>📧 contact@wattevent.com | 📞 (661) 302-0115</p>
               <p>Serving Bakersfield, Delano, Shafter, and all of Kern County, California</p>
             </div>
           </div>

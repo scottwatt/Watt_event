@@ -1,4 +1,4 @@
-/* Footer.css - Improved Version */
+/* Footer.css - Slightly Larger Logo */
 .footer-container {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: #fff;
@@ -22,13 +22,22 @@
 
 .footer-logo-link {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
+/* Slightly larger footer logo */
 .footer-logo-img {
-  width: 180px;
-  height: auto;
+  width: 220px !important;
+  height: auto !important;
+  max-height: 140px !important;
+  object-fit: contain !important;
   filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+  display: block !important;
+}
+
+.footer-logo-link:hover .footer-logo-img {
+  opacity: 0.8;
 }
 
 .footer-tagline {
@@ -185,6 +194,11 @@
     align-items: center;
   }
   
+  .footer-logo-img {
+    width: 200px !important;
+    max-height: 120px !important;
+  }
+  
   .footer-social {
     justify-content: center;
   }
@@ -199,6 +213,11 @@
   
   .footer-brand {
     grid-column: span 1;
+  }
+  
+  .footer-logo-img {
+    width: 180px !important;
+    max-height: 110px !important;
   }
   
   .footer-section {

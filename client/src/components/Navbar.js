@@ -1,4 +1,4 @@
-// components/Navbar.js - Updated with OptimizedImage
+// components/Navbar.js - Fixed Logo Dimensions
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,7 +25,6 @@ function Navbar() {
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     return history.listen(() => {
       closeMobileMenu();
@@ -40,10 +39,10 @@ function Navbar() {
             src="images/Watt-Events.png"
             alt="Watt Events Casino Rentals Bakersfield Logo"
             className="nav-logo"
-            width={200}
-            height={240}
-            priority={true} // Logo should load immediately
-            sizes="200px"
+            width={250}
+            height={75}
+            priority={true}
+            sizes="250px"
           />
         </Link>
         
