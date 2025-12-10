@@ -1,4 +1,4 @@
-/* Navbar.css - With Active Page Indicator */
+/* Navbar.css - With Poker Chip Active Indicator */
 
 .navbar {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -75,6 +75,7 @@
   height: 100px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 /* Nav Links - Base Style */
@@ -91,7 +92,6 @@
   position: relative;
 }
 
-/* Nav Link Text */
 .nav-link-text {
   position: relative;
   z-index: 1;
@@ -116,50 +116,107 @@
   transform: translateX(-50%) scaleX(1);
 }
 
-/* Hover State */
 .nav-links:hover {
   color: #FFD700;
 }
 
 /* ============================================
-   ACTIVE STATE - Cool Effects
+   ACTIVE STATE - Gold color & underline
    ============================================ */
 
-/* Active Link - Gold color with glow */
 .nav-links.active {
   color: #FFD700;
 }
 
-/* Active Underline - Always visible with glow */
 .nav-links.active::after {
   transform: translateX(-50%) scaleX(1);
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
-/* Active Indicator Dot */
+/* ============================================
+   POKER CHIP INDICATOR
+   Premium CSS Poker Chip above active link
+   ============================================ */
+
 .nav-links.active::before {
   content: '';
   position: absolute;
-  top: 22px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 6px;
-  height: 6px;
-  background: #FFD700;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-  animation: pulse 2s ease-in-out infinite;
+  
+  /* Multi-layer gradient for realistic chip look */
+  background: 
+    /* Center shine highlight */
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
+    /* Main gold gradient */
+    radial-gradient(circle at 50% 50%, #FFE566 0%, #FFD700 30%, #D4A000 60%, #B8860B 100%);
+  
+  /* Complex box-shadow for depth and rings */
+  box-shadow: 
+    /* Inner dark ring */
+    inset 0 0 0 4px #1a1a2e,
+    /* Inner gold ring */
+    inset 0 0 0 5px #FFD700,
+    /* Edge notch shadows (creates stripe illusion) */
+    inset 2px 0 0 5px rgba(255, 253, 208, 0.8),
+    inset -2px 0 0 5px rgba(255, 253, 208, 0.8),
+    inset 0 2px 0 5px rgba(255, 253, 208, 0.8),
+    inset 0 -2px 0 5px rgba(255, 253, 208, 0.8),
+    /* Diagonal notches */
+    inset 1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
+    inset -1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
+    inset 1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
+    inset -1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
+    /* Outer dark border */
+    0 0 0 2px #0d0d1a,
+    /* 3D depth shadow */
+    0 3px 6px rgba(0, 0, 0, 0.5),
+    /* Gold glow */
+    0 0 12px rgba(255, 215, 0, 0.6);
+  
+  animation: chipHover 3s ease-in-out infinite;
+  z-index: 10;
 }
 
-/* Pulse Animation for Active Dot */
-@keyframes pulse {
+/* Chip hover/float animation */
+@keyframes chipHover {
   0%, 100% {
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-    transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+    box-shadow: 
+      inset 0 0 0 4px #1a1a2e,
+      inset 0 0 0 5px #FFD700,
+      inset 2px 0 0 5px rgba(255, 253, 208, 0.8),
+      inset -2px 0 0 5px rgba(255, 253, 208, 0.8),
+      inset 0 2px 0 5px rgba(255, 253, 208, 0.8),
+      inset 0 -2px 0 5px rgba(255, 253, 208, 0.8),
+      inset 1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
+      inset -1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
+      inset 1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
+      inset -1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
+      0 0 0 2px #0d0d1a,
+      0 3px 6px rgba(0, 0, 0, 0.5),
+      0 0 12px rgba(255, 215, 0, 0.6);
   }
   50% {
-    box-shadow: 0 0 15px rgba(255, 215, 0, 1);
-    transform: translateX(-50%) scale(1.2);
+    transform: translateX(-50%) translateY(-3px) rotate(10deg);
+    box-shadow: 
+      inset 0 0 0 4px #1a1a2e,
+      inset 0 0 0 5px #FFD700,
+      inset 2px 0 0 5px rgba(255, 253, 208, 0.8),
+      inset -2px 0 0 5px rgba(255, 253, 208, 0.8),
+      inset 0 2px 0 5px rgba(255, 253, 208, 0.8),
+      inset 0 -2px 0 5px rgba(255, 253, 208, 0.8),
+      inset 1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
+      inset -1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
+      inset 1.5px -1.5px 0 5px rgba(255, 253, 208, 0.6),
+      inset -1.5px 1.5px 0 5px rgba(255, 253, 208, 0.6),
+      0 0 0 2px #0d0d1a,
+      0 6px 12px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(255, 215, 0, 0.8);
   }
 }
 
@@ -217,7 +274,9 @@
   }
 
   .nav-links.active::before {
-    top: 20px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -290,37 +349,59 @@
     position: relative;
   }
 
-  /* Mobile - Remove desktop underline effect */
+  /* Mobile - Remove desktop effects */
   .nav-links::after {
     display: none;
   }
 
-  .nav-links::before {
-    display: none;
+  /* Mobile - Poker chip on left side of active link */
+  .nav-links.active::before {
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    animation: chipPulse 2s ease-in-out infinite;
   }
 
-  /* Mobile Active State - Left border indicator */
+  @keyframes chipPulse {
+    0%, 100% {
+      transform: translateY(-50%) scale(1);
+      box-shadow: 
+        inset 0 0 0 3px #1a1a2e,
+        inset 0 0 0 4px #FFD700,
+        inset 1.5px 0 0 4px rgba(255, 253, 208, 0.8),
+        inset -1.5px 0 0 4px rgba(255, 253, 208, 0.8),
+        inset 0 1.5px 0 4px rgba(255, 253, 208, 0.8),
+        inset 0 -1.5px 0 4px rgba(255, 253, 208, 0.8),
+        0 0 0 1.5px #0d0d1a,
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 
+        inset 0 0 0 3px #1a1a2e,
+        inset 0 0 0 4px #FFD700,
+        inset 1.5px 0 0 4px rgba(255, 253, 208, 0.8),
+        inset -1.5px 0 0 4px rgba(255, 253, 208, 0.8),
+        inset 0 1.5px 0 4px rgba(255, 253, 208, 0.8),
+        inset 0 -1.5px 0 4px rgba(255, 253, 208, 0.8),
+        0 0 0 1.5px #0d0d1a,
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 18px rgba(255, 215, 0, 0.8);
+    }
+  }
+
+  /* Mobile Active State */
   .nav-links.active {
-    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%);
-    border-left: 4px solid #FFD700;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
     color: #FFD700;
-  }
-
-  /* Mobile - Active indicator icon */
-  .nav-links.active .nav-link-text::after {
-    content: ' ✦';
-    font-size: 0.7rem;
-    margin-left: 0.5rem;
-    animation: sparkle 1.5s ease-in-out infinite;
-  }
-
-  @keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.3); }
+    padding-left: 3.5rem;
   }
 
   .nav-links:hover {
-    background: rgba(255, 215, 0, 0.1);
+    background: rgba(255, 215, 0, 0.05);
     color: #FFD700;
   }
 
@@ -338,16 +419,15 @@
     margin: 0 auto;
     border-radius: 50px;
     padding: 1rem 2rem !important;
-    border-left: none !important;
+  }
+
+  .nav-cta-btn::before {
+    display: none !important;
   }
 
   .nav-cta-btn.active {
     background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
-    border-left: none !important;
-  }
-
-  .nav-cta-btn .nav-link-text::after {
-    display: none !important;
+    padding-left: 2rem !important;
   }
 }
 
@@ -381,6 +461,16 @@
   .nav-links {
     padding: 1rem;
     font-size: 1rem;
+  }
+
+  .nav-links.active {
+    padding-left: 3rem;
+  }
+
+  .nav-links.active::before {
+    left: 1rem;
+    width: 16px;
+    height: 16px;
   }
 }
 
