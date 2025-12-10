@@ -1,4 +1,4 @@
-// client/src/components/pages/Booking.js
+// components/pages/Booking.js - Professional Redesign
 import React, { useState } from 'react';
 import './Booking.css';
 
@@ -17,12 +17,13 @@ const Booking = () => {
     specialRequests: ''
   });
   const [formStatus, setFormStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const gameOptions = [
-    { id: 'poker', name: 'Poker' },
-    { id: 'blackjack', name: 'Blackjack' },
-    { id: 'roulette', name: 'Roulette' },
-    { id: 'craps', name: 'Craps' }
+    { id: 'poker', name: 'Poker', icon: '🃏' },
+    { id: 'blackjack', name: 'Blackjack', icon: '🎴' },
+    { id: 'roulette', name: 'Roulette', icon: '🎰' },
+    { id: 'craps', name: 'Craps', icon: '🎲' }
   ];
 
   const eventTypes = [
@@ -31,308 +32,310 @@ const Booking = () => {
     'Wedding',
     'Fundraiser',
     'Holiday Party',
+    'Bachelor/Bachelorette',
     'Other'
   ];
 
   const timeSlots = [
-    '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
-    '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM',
-    '10:00 PM', '11:00 PM'
+    '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM',
+    '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM',
+    '8:00 PM', '9:00 PM', '10:00 PM'
   ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     
     if (name === 'phone') {
-      // Remove all non-digits
       const digits = value.replace(/\D/g, '');
-      
-      // Format the phone number
       let formattedNumber = '';
       if (digits.length > 0) formattedNumber += digits.slice(0, 3);
       if (digits.length > 3) formattedNumber += '-' + digits.slice(3, 6);
       if (digits.length > 6) formattedNumber += '-' + digits.slice(6, 10);
-  
-      setFormData(prev => ({
-        ...prev,
-        [name]: formattedNumber
-      }));
+      setFormData(prev => ({ ...prev, [name]: formattedNumber }));
     } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
+      setFormData(prev => ({ ...prev, [name]: value }));
     }
   };
 
-  const handleGameSelection = (e) => {
-    const { checked, value } = e.target;
+  const handleGameSelection = (gameName) => {
     setFormData(prev => ({
       ...prev,
-      selectedGames: checked
-        ? [...prev.selectedGames, value]
-        : prev.selectedGames.filter(game => game !== value)
+      selectedGames: prev.selectedGames.includes(gameName)
+        ? prev.selectedGames.filter(g => g !== gameName)
+        : [...prev.selectedGames, gameName]
     }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-
-    // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
-      setFormStatus('Please fill in all required fields.');
-      return;
-    }
+    setIsSubmitting(true);
 
     if (formData.selectedGames.length === 0) {
-      setFormStatus('Please select at least one game.');
+      setFormStatus('error');
+      setIsSubmitting(false);
       return;
     }
 
-    // Create form data for Formspree or similar service
     const submitData = new FormData();
-    submitData.append("firstName", formData.firstName);
-    submitData.append("lastName", formData.lastName);
-    submitData.append("email", formData.email);
-    submitData.append("phone", formData.phone);
-    submitData.append("date", formData.date);
-    submitData.append("time", formData.time);
-    submitData.append("eventType", formData.eventType);
-    submitData.append("numberOfTables", formData.numberOfTables);
-    submitData.append("selectedGames", formData.selectedGames.join(', '));
-    submitData.append("guestCount", formData.guestCount);
-    submitData.append("specialRequests", formData.specialRequests);
-
-    // Submit to Formspree (replace with your Formspree endpoint)
-    fetch("https://formspree.io/f/xoqopnpz", {
-        method: "POST",
-        headers: {
-            "Accept": "application/json"
-        },
-        body: submitData,
-    })
-    .then((response) => {
-        return response.json().then(data => {
-            if (response.ok) {
-                setFormStatus('Quote request submitted successfully! We will contact you within 24 hours.');
-                // Reset form
-                setFormData({
-                  firstName: '',
-                  lastName: '',
-                  email: '',
-                  phone: '',
-                  date: '',
-                  time: '',
-                  eventType: '',
-                  numberOfTables: 1,
-                  selectedGames: [],
-                  guestCount: '',
-                  specialRequests: ''
-                });
-            } else {
-                console.log(data);
-                setFormStatus('Error submitting request. Please try again or call us directly.');
-            }
-        });
-    })
-    .catch(() => {
-        setFormStatus('Error submitting request. Please try again or call us directly.');
+    Object.entries(formData).forEach(([key, value]) => {
+      submitData.append(key, key === 'selectedGames' ? value.join(', ') : value);
     });
+
+    try {
+      const response = await fetch("https://formspree.io/f/xoqopnpz", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: submitData,
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({
+          firstName: '', lastName: '', email: '', phone: '', date: '',
+          time: '', eventType: '', numberOfTables: 1, selectedGames: [],
+          guestCount: '', specialRequests: ''
+        });
+      } else {
+        setFormStatus('error');
+      }
+    } catch {
+      setFormStatus('error');
+    }
+    setIsSubmitting(false);
   };
 
   const today = new Date().toISOString().split('T')[0];
   const maxDate = new Date();
-  maxDate.setMonth(maxDate.getMonth() + 6);
+  maxDate.setMonth(maxDate.getMonth() + 12);
   const maxDateString = maxDate.toISOString().split('T')[0];
 
   return (
-    <div className="booking-container">
-      <h1>Request Your Free Quote</h1>
-      <p style={{textAlign: 'center', marginBottom: '2rem', color: '#666'}}>
-        Fill out the form below for a personalized quote, or call us directly at{' '}
-        <a href="tel:661-302-0115" style={{color: '#4a90e2', fontWeight: 'bold'}}>
-          (661) 302-0115
-        </a>
-      </p>
-      
-      {formStatus && (
-        <div className={formStatus.includes('successfully') ? "success-message" : "error-message"}>
-          {formStatus}
-        </div>
-      )}
-      
-      <form onSubmit={onSubmit} className="booking-form">
-        <div className="form-row" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
-          <div className="form-group">
-            <label>First Name: *</label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Last Name: *</label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label>Email Address: *</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Phone Number: *</label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            maxLength="12"
-            placeholder="123-456-7890"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Preferred Event Date:</label>
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleInputChange}
-            min={today}
-            max={maxDateString}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Preferred Time:</label>
-          <select
-            name="time"
-            value={formData.time}
-            onChange={handleInputChange}
-          >
-            <option value="">Select a time (optional)</option>
-            {timeSlots.map(time => (
-              <option key={time} value={time}>{time}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label>Event Type:</label>
-          <select
-            name="eventType"
-            value={formData.eventType}
-            onChange={handleInputChange}
-          >
-            <option value="">Select event type</option>
-            {eventTypes.map(type => (
-              <option key={type} value={type}>{type}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-row" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
-          <div className="form-group">
-            <label>Number of Tables:</label>
-            <input
-              type="number"
-              name="numberOfTables"
-              value={formData.numberOfTables}
-              onChange={handleInputChange}
-              min="1"
-              max="100"
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Expected Guest Count:</label>
-            <input
-              type="number"
-              name="guestCount"
-              value={formData.guestCount}
-              onChange={handleInputChange}
-              min="1"
-            />
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label>Select Games: *</label>
-          <div className="games-selection">
-            {gameOptions.map(game => (
-              <div key={game.id} className="game-option">
-                <input
-                  type="checkbox"
-                  id={game.id}
-                  value={game.name}
-                  checked={formData.selectedGames.includes(game.name)}
-                  onChange={handleGameSelection}
-                />
-                <label htmlFor={game.id}>{game.name}</label>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label>Special Requests or Questions:</label>
-          <textarea
-            name="specialRequests"
-            value={formData.specialRequests}
-            onChange={handleInputChange}
-            rows="4"
-            placeholder="Tell us about your event, any special requirements, or questions you have..."
-          />
-        </div>
-
-        <button type="submit" className="submit-button">
-          Request Free Quote
-        </button>
-
-        <div style={{textAlign: 'center', marginTop: '2rem', padding: '1rem', backgroundColor: '#f9f9f9', borderRadius: '8px'}}>
-          <h3 style={{margin: '0 0 1rem 0', color: '#333'}}>Prefer to Talk?</h3>
-          <p style={{margin: '0 0 1rem 0', color: '#666'}}>
-            Call us directly for immediate assistance and personalized service:
+    <div className="booking-page">
+      {/* Hero Section */}
+      <section className="booking-hero">
+        <div className="booking-hero-content">
+          <span className="booking-hero-badge">Free Quote</span>
+          <h1>Book Your Casino Event</h1>
+          <p>
+            Get a personalized quote for your next event. We'll respond within 24 hours 
+            with pricing and availability.
           </p>
-          <a 
-            href="tel:661-302-0115" 
-            style={{
-              display: 'inline-block',
-              padding: '12px 24px',
-              backgroundColor: '#4a90e2',
-              color: 'white',
-              textDecoration: 'none',
-              borderRadius: '6px',
-              fontWeight: 'bold',
-              fontSize: '1.1rem'
-            }}
-          >
-            📞 (661) 302-0115
+        </div>
+      </section>
+
+      {/* Quick Contact */}
+      <section className="booking-quick-contact">
+        <div className="quick-contact-inner">
+          <a href="tel:661-302-0115" className="quick-contact-item">
+            <span className="icon">📞</span>
+            <span>Call (661) 302-0115</span>
           </a>
-          <p style={{margin: '1rem 0 0 0', fontSize: '0.9rem', color: '#888'}}>
-            Available 7 days a week for your convenience
-          </p>
+          <a href="mailto:contact@wattevent.com" className="quick-contact-item">
+            <span className="icon">✉️</span>
+            <span>contact@wattevent.com</span>
+          </a>
         </div>
-      </form>
+      </section>
+
+      {/* Form Section */}
+      <section className="booking-section">
+        <div className="booking-container">
+          <div className="booking-form-wrapper">
+            <div className="form-header">
+              <h2>Request Your Quote</h2>
+              <p>Fill out the details below and we'll get back to you shortly</p>
+            </div>
+
+            {formStatus === 'success' && (
+              <div className="form-message success">
+                ✓ Quote request submitted! We'll contact you within 24 hours.
+              </div>
+            )}
+
+            {formStatus === 'error' && (
+              <div className="form-message error">
+                ✕ Please select at least one game and try again.
+              </div>
+            )}
+
+            <form onSubmit={onSubmit} className="booking-form">
+              <div className="form-row">
+                <div className="form-group">
+                  <label>First Name <span className="required">*</span></label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    placeholder="John"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Last Name <span className="required">*</span></label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    placeholder="Smith"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Email Address <span className="required">*</span></label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="john@example.com"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Phone Number <span className="required">*</span></label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    maxLength="12"
+                    placeholder="661-555-0123"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Event Date</label>
+                  <input
+                    type="date"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleInputChange}
+                    min={today}
+                    max={maxDateString}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Preferred Time</label>
+                  <select name="time" value={formData.time} onChange={handleInputChange}>
+                    <option value="">Select a time</option>
+                    {timeSlots.map(time => (
+                      <option key={time} value={time}>{time}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Event Type</label>
+                  <select name="eventType" value={formData.eventType} onChange={handleInputChange}>
+                    <option value="">Select event type</option>
+                    {eventTypes.map(type => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Expected Guests</label>
+                  <input
+                    type="number"
+                    name="guestCount"
+                    value={formData.guestCount}
+                    onChange={handleInputChange}
+                    min="1"
+                    placeholder="50"
+                  />
+                </div>
+              </div>
+
+              <div className="games-section">
+                <div className="games-section-title">
+                  Select Games <span className="required">*</span>
+                </div>
+                <div className="games-grid">
+                  {gameOptions.map(game => (
+                    <div key={game.id} className="game-option">
+                      <input
+                        type="checkbox"
+                        id={game.id}
+                        checked={formData.selectedGames.includes(game.name)}
+                        onChange={() => handleGameSelection(game.name)}
+                      />
+                      <label htmlFor={game.id}>
+                        <span className="game-icon">{game.icon}</span>
+                        <span className="game-name">{game.name}</span>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Special Requests or Questions</label>
+                <textarea
+                  name="specialRequests"
+                  value={formData.specialRequests}
+                  onChange={handleInputChange}
+                  placeholder="Tell us about your event, venue, or any special requirements..."
+                />
+              </div>
+
+              <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Request Free Quote'}
+                {!isSubmitting && (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                )}
+              </button>
+
+              <div className="phone-cta-section">
+                <h3>Prefer to Talk?</h3>
+                <p>Get immediate assistance and personalized service</p>
+                <a href="tel:661-302-0115" className="phone-btn">
+                  📞 (661) 302-0115
+                </a>
+                <p className="availability-note">Available 7 days a week</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Book Section */}
+      <section className="why-book-section">
+        <div className="why-book-container">
+          <div className="why-book-header">
+            <h2>Why Book With Watt Events?</h2>
+            <p>Experience the difference of working with Bakersfield's premier casino rental company</p>
+          </div>
+          <div className="why-book-grid">
+            <div className="why-book-item">
+              <span className="why-book-icon">⚡</span>
+              <h3>Fast Response</h3>
+              <p>Receive your personalized quote within 24 hours of submission</p>
+            </div>
+            <div className="why-book-item">
+              <span className="why-book-icon">💰</span>
+              <h3>No Hidden Fees</h3>
+              <p>Transparent pricing with everything included in your quote</p>
+            </div>
+            <div className="why-book-item">
+              <span className="why-book-icon">🎯</span>
+              <h3>Customized Packages</h3>
+              <p>Tailored solutions to fit your event size and budget</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

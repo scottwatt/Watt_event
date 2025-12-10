@@ -1,0 +1,499 @@
+/* GameRules.css - Shared Professional Styles for All Game Rules Pages */
+
+.rules-page {
+  background: #f8f9fa;
+}
+
+/* Hero Section */
+.rules-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rules-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../images/Wattenbarger-Events.png') center/cover;
+  opacity: 0.1;
+}
+
+.rules-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rules-hero-badge {
+  display: inline-block;
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #FFD700;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.rules-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+.rules-hero p {
+  font-size: 1.2rem;
+  color: #FFFDD0;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.rules-hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Main Content Container */
+.rules-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Section Cards */
+.rules-section {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.rules-section:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.rules-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #FFD700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rules-section h2 .section-icon {
+  font-size: 1.5rem;
+}
+
+.rules-section h3 {
+  font-size: 1.25rem;
+  color: #1a1a2e;
+  margin: 1.5rem 0 1rem;
+  font-weight: 600;
+}
+
+.rules-section p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.rules-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Highlight Box */
+.rules-highlight {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+  border-left: 4px solid #FFD700;
+  padding: 1.5rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+
+.rules-highlight p {
+  margin: 0;
+  color: #1a1a2e;
+  font-weight: 500;
+}
+
+/* Lists */
+.rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.rules-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.rules-list li:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateX(5px);
+}
+
+.rules-list .list-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.rules-list .list-content {
+  flex: 1;
+}
+
+.rules-list .list-content strong {
+  color: #1a1a2e;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.rules-list .list-content span {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Tables */
+.rules-table-wrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.rules-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.rules-table th {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #FFD700;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rules-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.rules-table tr:last-child td {
+  border-bottom: none;
+}
+
+.rules-table tr:hover td {
+  background: #f8f9fa;
+}
+
+.rules-table .payout {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 165, 0, 0.15) 100%);
+  color: #1a1a2e;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+/* Definition Lists */
+.rules-definitions {
+  margin: 1.5rem 0;
+}
+
+.rules-definition-item {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #FFD700;
+  transition: all 0.3s ease;
+}
+
+.rules-definition-item:hover {
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.rules-definition-item dt {
+  font-weight: 700;
+  color: #1a1a2e;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.rules-definition-item dd {
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Betting Categories */
+.betting-category {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.betting-category h3 {
+  font-size: 1.15rem;
+  color: #1a1a2e;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.betting-category h3 .category-icon {
+  margin-right: 0.5rem;
+}
+
+.bet-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.bet-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.bet-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #FFD700;
+}
+
+.bet-name {
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.bet-payout {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 165, 0, 0.2) 100%);
+  color: #1a1a2e;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.bet-note {
+  color: #888;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-left: 0.75rem;
+}
+
+/* CTA Section */
+.rules-cta {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.rules-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0;
+}
+
+.rules-cta p {
+  color: #FFFDD0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-btn.primary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+}
+
+.cta-btn.secondary:hover {
+  background: #FFD700;
+  color: #1a1a2e;
+}
+
+/* Quick Navigation */
+.rules-nav {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.rules-nav h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.rules-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rules-nav-links a {
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  color: #1a1a2e;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.rules-nav-links a:hover {
+  background: #FFD700;
+  color: #1a1a2e;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .rules-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .rules-container {
+    padding: 2rem 1rem;
+  }
+
+  .rules-section {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .rules-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .bet-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .bet-payout {
+    margin-left: 0;
+  }
+
+  .rules-cta {
+    padding: 2rem 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .rules-nav-links {
+    flex-direction: column;
+  }
+
+  .rules-nav-links a {
+    text-align: center;
+  }
+}

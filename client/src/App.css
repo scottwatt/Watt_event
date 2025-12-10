@@ -296,3 +296,170 @@ label {
     color: #000;
   }
 }
+
+/* Primary CTA Buttons - Gold gradient */
+.cta-btn.primary,
+.hero-btn.primary,
+.submit-btn,
+.phone-btn,
+a.cta-btn.primary,
+a.hero-btn.primary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e !important;
+  border: none;
+}
+
+.cta-btn.primary:hover,
+.hero-btn.primary:hover,
+.submit-btn:hover,
+.phone-btn:hover,
+a.cta-btn.primary:hover,
+a.hero-btn.primary:hover {
+  background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+  color: #1a1a2e !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+}
+
+/* Secondary/Outline Buttons */
+.cta-btn.secondary,
+.hero-btn.secondary,
+a.cta-btn.secondary,
+a.hero-btn.secondary {
+  background: transparent;
+  color: #FFD700 !important;
+  border: 2px solid #FFD700;
+}
+
+.cta-btn.secondary:hover,
+.hero-btn.secondary:hover,
+a.cta-btn.secondary:hover,
+a.hero-btn.secondary:hover {
+  background: #FFD700;
+  color: #1a1a2e !important;
+  border-color: #FFD700;
+}
+
+/* Cards CTA Buttons - On light backgrounds */
+.cards-cta .btn.btn-primary,
+.cards-cta-buttons .btn.btn-primary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e !important;
+}
+
+.cards-cta .btn.btn-primary:hover,
+.cards-cta-buttons .btn.btn-primary:hover {
+  color: #1a1a2e !important;
+  transform: translateY(-3px);
+}
+
+.cards-cta .btn.btn-secondary,
+.cards-cta-buttons .btn.btn-secondary {
+  background: #1a1a2e;
+  color: #FFD700 !important;
+  border: 2px solid #1a1a2e;
+}
+
+.cards-cta .btn.btn-secondary:hover,
+.cards-cta-buttons .btn.btn-secondary:hover {
+  background: transparent;
+  color: #1a1a2e !important;
+  border-color: #1a1a2e;
+}
+
+/* Fix for any button with Link wrapper */
+a.btn,
+a.cta-btn,
+a.hero-btn,
+button.btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Ensure SVG icons in buttons stay visible */
+.btn svg,
+.cta-btn svg,
+.hero-btn svg {
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover svg,
+.cta-btn:hover svg,
+.hero-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Fix Contact Card button override */
+.contact-card-container .btn,
+.contact-card .btn {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
+  color: #1a1a2e !important;
+  border: none !important;
+}
+
+.contact-card-container .btn:hover,
+.contact-card .btn:hover {
+  color: #1a1a2e !important;
+  background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%) !important;
+}
+
+/* Service Areas & Reviews CTA buttons */
+.reviews-cta .cta-button,
+.service-promise + .btn,
+a.cta-button {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e !important;
+}
+
+.reviews-cta .cta-button:hover,
+a.cta-button:hover {
+  color: #1a1a2e !important;
+  transform: translateY(-2px);
+}
+
+/* Floating CTA buttons */
+.floating-option {
+  color: #FFFDD0 !important;
+}
+
+.floating-option:hover {
+  color: #1a1a2e !important;
+}
+
+/* Mobile CTA bar */
+.mobile-cta-call,
+.mobile-cta-quote {
+  color: inherit;
+}
+
+.mobile-cta-call:hover {
+  color: #1a1a2e !important;
+}
+
+.mobile-cta-quote:hover {
+  color: #1a1a2e !important;
+  background: #FFD700 !important;
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.cta-btn:focus,
+.hero-btn:focus {
+  outline: 3px solid rgba(255, 215, 0, 0.5);
+  outline-offset: 2px;
+}
+
+/* Transition for smooth hover effects */
+.btn,
+.cta-btn,
+.hero-btn,
+a.btn,
+a.cta-btn,
+a.hero-btn,
+button {
+  transition: all 0.3s ease;
+}
