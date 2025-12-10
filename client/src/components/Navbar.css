@@ -1,8 +1,8 @@
-/* Navbar.css - Even Larger Logo */
+/* Navbar.css - With Active Page Indicator */
 
 .navbar {
-  background: var(--luxury-gradient);
-  height: 90px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  border-bottom: 2px solid var(--primary-gold);
+  border-bottom: 2px solid #FFD700;
 }
 
 .navbar-container {
@@ -23,36 +23,46 @@
   height: 100%;
 }
 
+/* Logo Container */
 .navbar-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   cursor: pointer;
   text-decoration: none;
-  padding: 5px 1rem;
-  height: 90px;
-  max-height: 90px;
-  overflow: hidden;
+  padding: 10px 0;
+  height: 100%;
 }
 
-/* Larger navbar logo */
 .nav-logo {
-  height: 170px !important;
+  height: 80px !important;
   width: auto !important;
-  max-width: 250px !important;
-  max-height: 170px !important;
+  max-width: 280px !important;
   object-fit: contain !important;
   filter: brightness(0) invert(1);
-  display: block;
+  display: block !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.navbar-logo:hover .nav-logo {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Menu Icon */
 .menu-icon {
   display: none;
-  color: #fff;
+  color: #FFD700;
   font-size: 1.8rem;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
+.menu-icon:hover {
+  color: #FFA500;
+}
+
+/* Navigation Menu */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -62,24 +72,158 @@
 }
 
 .nav-item {
-  height: 90px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-links {
-  color: #a6a24c;
+  height: 100px;
   display: flex;
   align-items: center;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  height: 100%;
-  transition: all 0.3s ease;
 }
 
-.nav-links:hover {
-  color: var(--primary-gold);
-  border-bottom: 2px solid var(--primary-gold);
+/* Nav Links - Base Style */
+.nav-links {
+  color: #FFFDD0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0.5rem 1.25rem;
+  height: 100%;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
 }
+
+/* Nav Link Text */
+.nav-link-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animated Underline Effect */
+.nav-links::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: calc(100% - 1.5rem);
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-links:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Hover State */
+.nav-links:hover {
+  color: #FFD700;
+}
+
+/* ============================================
+   ACTIVE STATE - Cool Effects
+   ============================================ */
+
+/* Active Link - Gold color with glow */
+.nav-links.active {
+  color: #FFD700;
+}
+
+/* Active Underline - Always visible with glow */
+.nav-links.active::after {
+  transform: translateX(-50%) scaleX(1);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Active Indicator Dot */
+.nav-links.active::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #FFD700;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Pulse Animation for Active Dot */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 1);
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+/* ============================================
+   GET QUOTE CTA BUTTON
+   ============================================ */
+
+.nav-cta {
+  margin-left: 0.5rem;
+}
+
+.nav-cta-btn {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e !important;
+  border-radius: 50px;
+  padding: 0.7rem 1.5rem !important;
+  font-weight: 600 !important;
+  height: auto !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.nav-cta-btn::after,
+.nav-cta-btn::before {
+  display: none !important;
+}
+
+.nav-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  color: #1a1a2e !important;
+}
+
+.nav-cta-btn.active {
+  background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+  box-shadow: 0 4px 20px rgba(255, 165, 0, 0.5);
+}
+
+/* ============================================
+   TABLET STYLES
+   ============================================ */
+
+@media screen and (max-width: 1100px) {
+  .navbar-container {
+    padding: 0 30px;
+  }
+  
+  .nav-links {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .nav-links::after {
+    bottom: 18px;
+  }
+
+  .nav-links.active::before {
+    top: 20px;
+  }
+}
+
+/* ============================================
+   MOBILE STYLES
+   ============================================ */
 
 @media screen and (max-width: 960px) {
   .navbar {
@@ -87,12 +231,16 @@
   }
   
   .navbar-container {
-    padding: 0 30px;
+    padding: 0 20px;
   }
   
   .navbar-logo {
-    height: 100px;
-    max-height: 100px;
+    flex: 1;
+  }
+
+  .nav-logo {
+    height: 60px !important;
+    max-width: 200px !important;
   }
 
   .nav-menu {
@@ -103,26 +251,25 @@
     position: absolute;
     top: 80px;
     left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease;
-    background: var(--luxury-gradient);
+    opacity: 0;
+    transition: all 0.4s ease;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding-top: 1rem;
+    overflow-y: auto;
   }
 
   .nav-menu.active {
     left: 0;
     opacity: 1;
-    transition: all 0.5s ease;
     z-index: 1;
   }
 
   .menu-icon {
     display: block;
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
     cursor: pointer;
-    color: var(--cream);
+    color: #FFD700;
+    padding: 10px;
   }
 
   .nav-item {
@@ -133,35 +280,84 @@
 
   .nav-links {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.25rem;
     width: 100%;
-    display: block;
-    color: var(--cream);
-    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    color: #FFFDD0;
+    font-size: 1.1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  /* Mobile - Remove desktop underline effect */
+  .nav-links::after {
+    display: none;
+  }
+
+  .nav-links::before {
+    display: none;
+  }
+
+  /* Mobile Active State - Left border indicator */
+  .nav-links.active {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%);
+    border-left: 4px solid #FFD700;
+    color: #FFD700;
+  }
+
+  /* Mobile - Active indicator icon */
+  .nav-links.active .nav-link-text::after {
+    content: ' ✦';
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
   }
 
   .nav-links:hover {
     background: rgba(255, 215, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
-    color: var(--primary-gold);
+    color: #FFD700;
   }
 
-  .nav-logo {
-    height: 60px !important;
-    max-height: 60px !important;
-    max-width: 200px !important;
+  /* Mobile CTA Button */
+  .nav-cta {
+    margin: 1rem 0;
+    padding: 0 1.5rem;
+  }
+
+  .nav-cta-btn {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #1a1a2e !important;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    border-radius: 50px;
+    padding: 1rem 2rem !important;
+    border-left: none !important;
+  }
+
+  .nav-cta-btn.active {
+    background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+    border-left: none !important;
+  }
+
+  .nav-cta-btn .nav-link-text::after {
+    display: none !important;
   }
 }
+
+/* ============================================
+   SMALL MOBILE
+   ============================================ */
 
 @media screen and (max-width: 480px) {
   .navbar {
     height: 70px;
-  }
-  
-  .navbar-logo {
-    height: 100px;
-    max-height: 100px;
   }
   
   .navbar-container {
@@ -170,21 +366,28 @@
 
   .nav-logo {
     height: 50px !important;
-    max-height: 50px !important;
-    max-width: 170px !important;
+    max-width: 160px !important;
   }
   
   .menu-icon {
-    right: 15px;
+    font-size: 1.5rem;
   }
   
   .nav-menu {
     top: 70px;
     height: calc(100vh - 70px);
   }
+  
+  .nav-links {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
 
-/* Logout button styles */
+/* ============================================
+   LOGOUT BUTTON (if using auth)
+   ============================================ */
+
 .nav-links.logout-button,
 button.nav-links.logout-button {
   background: #dc3545 !important;
@@ -201,7 +404,11 @@ button.nav-links.logout-button {
   margin: 0 10px !important;
   text-decoration: none !important;
   display: inline-block !important;
-  border-bottom: none !important;
+}
+
+.nav-links.logout-button::after,
+.nav-links.logout-button::before {
+  display: none !important;
 }
 
 .nav-links.logout-button:hover,
@@ -210,22 +417,16 @@ button.nav-links.logout-button:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3) !important;
   color: white !important;
-  border-bottom: none !important;
 }
 
 @media screen and (max-width: 960px) {
   .nav-links.logout-button,
   button.nav-links.logout-button {
-    width: 100% !important;
+    width: 90% !important;
+    max-width: 300px !important;
     text-align: center !important;
-    margin: 10px 0 !important;
+    margin: 15px auto !important;
     padding: 12px 20px !important;
-    background: #dc3545 !important;
-    color: white !important;
+    border-radius: 8px !important;
   }
-}
-
-.nav-item .nav-links.logout-button:hover {
-  color: white !important;
-  border-bottom: none !important;
 }

@@ -1,6 +1,6 @@
-// components/Navbar.js - Fixed Logo Dimensions
+// components/Navbar.js - With Active Page Indicator
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import OptimizedImage from './OptimizedImage';
@@ -31,55 +31,102 @@ function Navbar() {
     });
   }, [history]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 960) {
+        setClick(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <nav className='navbar' ref={navRef}>
       <div className='navbar-container'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+        <NavLink to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <OptimizedImage
             src="images/Watt-Events.png"
-            alt="Watt Events Casino Rentals Bakersfield Logo"
+            alt="Watt Events - Casino Rentals Bakersfield"
             className="nav-logo"
-            width={250}
-            height={75}
+            width={280}
+            height={80}
             priority={true}
-            sizes="250px"
+            sizes="(max-width: 480px) 160px, (max-width: 960px) 200px, 280px"
+            style={{
+              height: 'auto',
+              width: 'auto',
+              maxHeight: '80px',
+              maxWidth: '280px'
+            }}
           />
-        </Link>
+        </NavLink>
         
-        <div className='menu-icon' onClick={handleClick}>
+        <div className='menu-icon' onClick={handleClick} aria-label="Toggle menu">
           <FontAwesomeIcon icon={click ? faTimes : faBars} />
         </div>
         
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Home
-            </Link>
+            <NavLink 
+              exact 
+              to='/' 
+              className='nav-links' 
+              activeClassName='active'
+              onClick={closeMobileMenu}
+            >
+              <span className='nav-link-text'>Home</span>
+            </NavLink>
           </li>
           <li className='nav-item'>
-            <Link to='/about-us' className='nav-links' onClick={closeMobileMenu}>
-              About
-            </Link>
+            <NavLink 
+              to='/about-us' 
+              className='nav-links' 
+              activeClassName='active'
+              onClick={closeMobileMenu}
+            >
+              <span className='nav-link-text'>About</span>
+            </NavLink>
           </li>
           <li className='nav-item'>
-            <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
-              Services
-            </Link>
+            <NavLink 
+              to='/services' 
+              className='nav-links' 
+              activeClassName='active'
+              onClick={closeMobileMenu}
+            >
+              <span className='nav-link-text'>Services</span>
+            </NavLink>
           </li>
           <li className='nav-item'>
-            <Link to='/products' className='nav-links' onClick={closeMobileMenu}>
-              Products
-            </Link>
+            <NavLink 
+              to='/products' 
+              className='nav-links' 
+              activeClassName='active'
+              onClick={closeMobileMenu}
+            >
+              <span className='nav-link-text'>Products</span>
+            </NavLink>
           </li>
           <li className='nav-item'>
-            <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-              Contact
-            </Link>
+            <NavLink 
+              to='/contact' 
+              className='nav-links' 
+              activeClassName='active'
+              onClick={closeMobileMenu}
+            >
+              <span className='nav-link-text'>Contact</span>
+            </NavLink>
           </li>
-          <li className='nav-item'>
-            <Link to='/booking' className='nav-links' onClick={closeMobileMenu}>
-              Get Quote
-            </Link>
+          <li className='nav-item nav-cta'>
+            <NavLink 
+              to='/booking' 
+              className='nav-links nav-cta-btn' 
+              activeClassName='active'
+              onClick={closeMobileMenu}
+            >
+              <span className='nav-link-text'>Get Quote</span>
+            </NavLink>
           </li>
         </ul>
       </div>

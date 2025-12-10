@@ -1,4 +1,4 @@
-// components/OptimizedImage.js - Fixed to Allow CSS Override
+// components/OptimizedImage.js - Fixed for Logo Display
 import React from 'react';
 
 const OptimizedImage = ({ 
@@ -22,14 +22,15 @@ const OptimizedImage = ({
     <img
       src={imageSrc}
       alt={alt}
-      width={width}
-      height={height}
+      // Only set width/height if not overridden by style
+      {...(!style.width && !style.maxWidth && width ? { width } : {})}
+      {...(!style.height && !style.maxHeight && height ? { height } : {})}
       className={className}
       loading={priority ? 'eager' : 'lazy'}
       sizes={sizes}
       style={{
         display: 'block',
-        ...style // Allow custom styles to override defaults
+        ...style
       }}
       onError={(e) => {
         console.error('Image failed to load:', src);
