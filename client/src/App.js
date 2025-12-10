@@ -18,6 +18,7 @@ import Contact from './components/pages/Contact';
 import Booking from './components/pages/Booking';
 import CasinoRentalBakersfield from './components/pages/CasinoRentalBakersfield';
 import TermsOfService from './components/pages/TermsOfService';
+import PrivacyPolicy from './components/pages/PrivacyPolicy';
 
 // Game Rules Pages
 import BlackjackRules from './components/BlackjackRules';
@@ -44,6 +45,7 @@ function App() {
             <Route path='/booking' component={Booking} />
             <Route path='/casino-rental-bakersfield' component={CasinoRentalBakersfield} />
             <Route path='/terms-of-service' component={TermsOfService} />
+            <Route path='/privacy-policy' component={PrivacyPolicy} />
             
             {/* Game Rules */}
             <Route path='/blackjack' component={BlackjackRules} />

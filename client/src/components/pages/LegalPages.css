@@ -1,0 +1,438 @@
+/* LegalPages.css - Professional Styles for Terms & Privacy */
+
+.legal-page {
+  background: #f8f9fa;
+}
+
+/* Hero Section */
+.legal-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.legal-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../../images/Wattenbarger-Events.png') center/cover;
+  opacity: 0.1;
+}
+
+.legal-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal-hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.legal-hero-badge {
+  display: inline-block;
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #FFD700;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.legal-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+.legal-hero p {
+  font-size: 1.1rem;
+  color: #FFFDD0;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.legal-hero .last-updated {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #FFFDD0;
+  opacity: 0.8;
+}
+
+/* Main Content Container */
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Table of Contents */
+.legal-toc {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.legal-toc h2 {
+  font-size: 1.25rem;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legal-toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legal-toc-list li {
+  margin: 0;
+}
+
+.legal-toc-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  color: #1a1a2e;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.legal-toc-list a:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 165, 0, 0.15) 100%);
+  color: #1a1a2e;
+  transform: translateX(5px);
+}
+
+.legal-toc-list .toc-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Section Cards */
+.legal-section {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  scroll-margin-top: 2rem;
+}
+
+.legal-section:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.legal-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #FFD700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legal-section h2 .section-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.legal-section h3 {
+  font-size: 1.15rem;
+  color: #1a1a2e;
+  margin: 1.5rem 0 1rem;
+  font-weight: 600;
+}
+
+.legal-section p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists */
+.legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.legal-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.legal-list li:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateX(5px);
+}
+
+.legal-list .list-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 165, 0, 0.2) 100%);
+  color: #1a1a2e;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.legal-list .list-content {
+  flex: 1;
+  color: #555;
+  line-height: 1.6;
+}
+
+.legal-list .list-content strong {
+  color: #1a1a2e;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Highlight Box */
+.legal-highlight {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+  border-left: 4px solid #FFD700;
+  padding: 1.5rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+
+.legal-highlight p {
+  margin: 0;
+  color: #1a1a2e;
+  font-weight: 500;
+}
+
+/* Contact Box */
+.legal-contact {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.legal-contact h3 {
+  color: #FFD700;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.legal-contact p {
+  color: #FFFDD0;
+  margin: 0.5rem 0;
+  opacity: 0.9;
+}
+
+.legal-contact a {
+  color: #FFD700;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.legal-contact a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* CTA Section */
+.legal-cta {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.legal-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0;
+}
+
+.legal-cta p {
+  color: #FFFDD0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-btn.primary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a2e;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+  color: #1a1a2e;
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+}
+
+.cta-btn.secondary:hover {
+  background: #FFD700;
+  color: #1a1a2e;
+}
+
+/* Back to Top */
+.back-to-top {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.back-to-top a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: #1a1a2e;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.back-to-top a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  color: #1a1a2e;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .legal-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .legal-container {
+    padding: 2rem 1rem;
+  }
+
+  .legal-section {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .legal-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .legal-toc-list {
+    grid-template-columns: 1fr;
+  }
+
+  .legal-cta {
+    padding: 2rem 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
