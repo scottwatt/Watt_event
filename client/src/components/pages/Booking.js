@@ -82,7 +82,7 @@ const Booking = () => {
     });
 
     try {
-      const response = await fetch("https://formspree.io/f/xoqopnpz", {
+      const response = await fetch("https://formspree.io/f/xknlpqbk", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: submitData,

@@ -1,65 +1,9 @@
-// index.js - Optimized Version
+// index.js - Fixed for react-snap pre-rendering
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
 import './styles/theme.css';
 import './index.css';
-
-// Optimized font loading with preload and font-display swap
-const preloadCriticalFonts = () => {
-  // Preload critical fonts
-  const fonts = [
-    'https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDTbtXK-F2qO0isEw.woff2',
-    'https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Uw-Y3tcoqK5.woff2'
-  ];
-
-  fonts.forEach(fontUrl => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'font';
-    link.type = 'font/woff2';
-    link.crossOrigin = 'anonymous';
-    link.href = fontUrl;
-    document.head.appendChild(link);
-  });
-};
-
-// Load fonts with optimized CSS
-const loadOptimizedFonts = () => {
-  const link = document.createElement('link');
-  link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap';
-  link.rel = 'stylesheet';
-  link.media = 'print';
-  link.onload = function() {
-    this.media = 'all';
-  };
-  document.head.appendChild(link);
-  
-  // Fallback for browsers that don't support onload
-  setTimeout(() => {
-    link.media = 'all';
-  }, 100);
-};
-
-// Performance observer for monitoring
-const initPerformanceMonitoring = () => {
-  if ('PerformanceObserver' in window) {
-    // Monitor Largest Contentful Paint
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        if (entry.entryType === 'largest-contentful-paint') {
-          console.log('LCP:', entry.startTime);
-        }
-      }
-    });
-    
-    try {
-      observer.observe({ entryTypes: ['largest-contentful-paint'] });
-    } catch (e) {
-      console.log('Performance monitoring not supported');
-    }
-  }
-};
 
 // Error boundary component
 class ErrorBoundary extends React.Component {
@@ -116,32 +60,44 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-// Initialize optimizations
-const initOptimizations = () => {
-  preloadCriticalFonts();
-  loadOptimizedFonts();
-  initPerformanceMonitoring();
-};
+// The app component wrapped with error boundary
+const WrappedApp = () => (
+  <React.StrictMode>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </React.StrictMode>
+);
 
-// Start the app
-const startApp = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-};
+// Get root element
+const rootElement = document.getElementById('root');
 
-// Initialize and start
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    initOptimizations();
-    startApp();
-  });
+// CRITICAL: Check if pre-rendered by react-snap
+// If root has children, hydrate. Otherwise, render fresh.
+if (rootElement.hasChildNodes()) {
+  // Page was pre-rendered by react-snap - hydrate it
+  hydrateRoot(rootElement, <WrappedApp />);
 } else {
-  initOptimizations();
-  startApp();
+  // Fresh render (development or if pre-rendering failed)
+  const root = createRoot(rootElement);
+  root.render(<WrappedApp />);
+}
+
+// Optional: Report web vitals (runs after render, won't affect react-snap)
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
+  // Performance monitoring - only in production, after hydration
+  setTimeout(() => {
+    if ('PerformanceObserver' in window) {
+      try {
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            console.log('LCP:', entry.startTime);
+          }
+        });
+        observer.observe({ entryTypes: ['largest-contentful-paint'] });
+      } catch (e) {
+        // Silently fail
+      }
+    }
+  }, 0);
 }

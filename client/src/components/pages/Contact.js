@@ -38,7 +38,7 @@ const Contact = () => {
     });
 
     try {
-      const response = await fetch("https://formspree.io/f/xoqopnpz", {
+      const response = await fetch("https://formspree.io/f/xknlpqbk", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: submitData,
@@ -78,7 +78,7 @@ const Contact = () => {
             <span className="icon">📞</span>
             <span className="text">(661) 302-0115</span>
           </a>
-          <a href="mailto:jill@wattevent.com" className="quick-contact-item">
+          <a href="mailto:contact@wattevent.com" className="quick-contact-item">
             <span className="icon">✉️</span>
             <span className="text">contact@wattevent.com</span>
           </a>

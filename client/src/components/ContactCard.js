@@ -14,7 +14,7 @@ const ContactCard = () => {
         formData.append("email", e.target.email.value);
         formData.append("message", e.target.message.value);
 
-        fetch("https://formspree.io/f/xoqopnpz", {
+        fetch("https://formspree.io/f/xknlpqbk", {
             method: "POST",
             headers: {
                 "Accept": "application/json"
